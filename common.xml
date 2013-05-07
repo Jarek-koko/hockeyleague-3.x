@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <property environment="env"/>
-    <property name="source"	value="${env.SOURCEDIR}\joomla16" />
-    <property name="release" 	value="${env.RELEASEDIR}\hockeyleague\Releases" />
-    <property name="builddir" 	value="${env.BUILDDIR}"/>
-    <property name="verbose" 	value="false"/>
+    <property name="source"     value="${env.SOURCEDIR}\joomla30" />
+    <property name="release" 	value="${env.RELEASEDIR}\hockeyleague3.x\Releases" />
+    <property name="builddir" 	value="${env.BUILDDIR}" />
+    <property name="verbose" 	value="true" />
+    
     <tstamp>
-        <format property="NOW" pattern="yyyyMMdd"/>
+        <format property="NOW" pattern="dd-MM-yyyy" />
     </tstamp>
 
     <loadfile property="dist.revision" srcFile="./.svn/entries" failonerror="false">
@@ -16,7 +17,7 @@
         </filterchain>
     </loadfile>
 
-    <condition property="version" value="${NOW}_r${dist.revision}" else="${NOW}">
+    <condition property="version" value="${NOW}_${dist.revision}" else="${NOW}">
         <isset property="dist.revision"/>
     </condition>
 
@@ -24,36 +25,38 @@
         <delete dir="${builddir}/${NAME}" verbose="${verbose}"/>
     </target>
     
-    
     <target name="_sync">
         <sync todir="${NAME}" includeemptydirs="true">
             <fileset dir="${builddir}/${NAME}"/>
             <preserveintarget>
-                <include name="**/.svn/**"/>
+                <include name="**/.git/**"/>
             </preserveintarget>
         </sync>
     </target>
     
     
     <target name="_package">
-        <zip destfile="${release}/${NAME}_${version}.zip" basedir="${NAME}" excludes=".svn"/>
+        <zip destfile="${release}/${NAME}_${version}.zip" basedir="${NAME}" excludes=".git, README.md"/>
     </target>
     
     
-    
     <target name="buildmodule" depends="_clean">
+        
         <copy todir="${builddir}/${NAME}" overwrite="true" verbose="${verbose}" failonerror="false">
             <fileset dir="${source}/${PREFIX}/modules/${NAME}"/>
         </copy>
+        
         <copy todir="${builddir}/${NAME}" overwrite="true" verbose="${verbose}"  failonerror="false" flatten="true">
             <fileset dir="${source}/${PREFIX}/language">
                 <include name="*/*${NAME}.ini" />
                 <include name="*/*${NAME}.sys.ini" />
             </fileset>
         </copy>
+        
     </target>
     
     <target name="buildcomponent" depends="_clean">
+        
         <mkdir dir="${builddir}/${NAME}/site"/>
         <mkdir dir="${builddir}/${NAME}/admin"/>
         <mkdir dir="${builddir}/${NAME}/admin/sql"/>
@@ -61,20 +64,25 @@
         <mkdir dir="${builddir}/${NAME}/images/numbers"/>
         <mkdir dir="${builddir}/${NAME}/images/teams"/>
         <mkdir dir="${builddir}/${NAME}/images/players"/>
+        
         <copy todir="${builddir}/${NAME}/images/numbers" overwrite="true" verbose="${verbose}" failonerror="false">
             <fileset dir="${source}/images/hockey/numbers"/>
         </copy>
+        
         <copy todir="${builddir}/${NAME}/images/teams" overwrite="true" verbose="${verbose}" failonerror="false">
             <filelist dir="${source}/images/hockey/teams" files="nologo.png" />
             <filelist dir="${source}/images/hockey/teams" files="index.html" />
         </copy>
+        
         <copy todir="${builddir}/${NAME}/images/players" overwrite="true" verbose="${verbose}" failonerror="false">
             <filelist dir="${source}/images/hockey/players" files="nophoto.jpg"/>
             <filelist dir="${source}/images/hockey/players" files="index.html"/>
         </copy>
+        
         <copy todir="${builddir}/${NAME}/admin" overwrite="true" verbose="${verbose}">
             <fileset dir="${source}/administrator/components/${NAME}"/>
         </copy>
+        
         <copy todir="${builddir}/${NAME}/admin/language" overwrite="true" verbose="${verbose}" flatten="true">
             <fileset dir="${source}/administrator/language">
                 <exclude name="overrides/*"/>
@@ -82,9 +90,11 @@
                 <include name="**/*${NAME}*.ini"/>
             </fileset>
         </copy>
+        
         <copy todir="${builddir}/${NAME}/site" overwrite="true" verbose="${verbose}">
             <fileset dir="${source}/components/${NAME}"/>
         </copy>
+        
         <copy todir="${builddir}/${NAME}/site/language" overwrite="true" verbose="${verbose}" flatten="true">
             <fileset dir="${source}/language">
                 <exclude name="overrides/*"/>
@@ -92,7 +102,9 @@
                 <include name="**/*${NAME}*.ini" />
             </fileset>
         </copy>
+        
         <move file="${builddir}/${NAME}/admin/hockey.xml" todir="${builddir}/${NAME}" verbose="${verbose}"/>
         <move file="${builddir}/${NAME}/admin/script.php" todir="${builddir}/${NAME}" verbose="${verbose}" />
+        
     </target>
 </project>

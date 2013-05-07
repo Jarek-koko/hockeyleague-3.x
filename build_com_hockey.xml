@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="helloworld" default="all" basedir=".">
+<project name="hockeyleague" default="all" basedir=".">
     <import file="common.xml"/>
     <target name="all" depends="build,sync,package"/>
+    <target name="all-no-pack" depends="build,sync"/>
     <target name="package">
         <antcall target="_package">
             <param name="NAME" value="com_hockey"/>
