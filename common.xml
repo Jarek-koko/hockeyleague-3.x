@@ -7,20 +7,12 @@
     <property name="verbose" 	value="true" />
     
     <tstamp>
-        <format property="NOW" pattern="dd-MM-yyyy" />
+        <format property="NOW" pattern="hh:mm_dd-MM-yyyy" />
     </tstamp>
+    
+    <property name="version" value="${NOW}" />
 
-    <loadfile property="dist.revision" srcFile="./.svn/entries" failonerror="false">
-        <filterchain>
-            <headfilter lines="1" skip="3"/>
-            <deletecharacters chars="\n"/>
-        </filterchain>
-    </loadfile>
-
-    <condition property="version" value="${NOW}_${dist.revision}" else="${NOW}">
-        <isset property="dist.revision"/>
-    </condition>
-
+    
     <target name="_clean">
         <delete dir="${builddir}/${NAME}" verbose="${verbose}"/>
     </target>
@@ -59,6 +51,7 @@
         
         <mkdir dir="${builddir}/${NAME}/site"/>
         <mkdir dir="${builddir}/${NAME}/admin"/>
+        <mkdir dir="${builddir}/${NAME}/media"/>
         <mkdir dir="${builddir}/${NAME}/admin/sql"/>
         <mkdir dir="${builddir}/${NAME}/images"/>
         <mkdir dir="${builddir}/${NAME}/images/numbers"/>
@@ -90,6 +83,10 @@
                 <include name="**/*${NAME}*.ini"/>
             </fileset>
         </copy>
+        
+        <copy todir="${builddir}/${NAME}/media" overwrite="true" verbose="${verbose}"  failonerror="false">
+            <fileset dir="${source}/media/${NAME}"/>
+         </copy>
         
         <copy todir="${builddir}/${NAME}/site" overwrite="true" verbose="${verbose}">
             <fileset dir="${source}/components/${NAME}"/>
