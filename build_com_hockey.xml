@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="helloworld" default="all" basedir=".">
+    <import file="common.xml"/>
+    <target name="all" depends="build,sync,package"/>
+    <target name="package">
+        <antcall target="_package">
+            <param name="NAME" value="com_hockey"/>
+        </antcall>
+        <antcall target="_package">
+            <param name="NAME" value="mod_topplayer"/>
+        </antcall>
+        <antcall target="_package">
+            <param name="NAME" value="mod_calendar"/>
+        </antcall>
+        <antcall target="_package">
+            <param name="NAME" value="mod_matchdays"/>
+        </antcall>
+        <antcall target="_package">
+            <param name="NAME" value="mod_standings"/>
+        </antcall>
+        <antcall target="_package">
+            <param name="NAME" value="mod_scoreboard"/>
+        </antcall>
+    </target>
+    <target name="build">
+        <antcall target="buildcomponent">
+            <param name="NAME" value="com_hockey"/>
+            <param name="PREFIX" value=""/>
+        </antcall>
+        <antcall target="buildmodule">
+            <param name="NAME" value="mod_topplayer"/>
+            <param name="PREFIX" value=""/>
+        </antcall>
+        <antcall target="buildmodule">
+            <param name="NAME" value="mod_calendar"/>
+            <param name="PREFIX" value=""/>
+        </antcall>
+        <antcall target="buildmodule">
+            <param name="NAME" value="mod_matchdays"/>
+            <param name="PREFIX" value=""/>
+        </antcall>
+        <antcall target="buildmodule">
+            <param name="NAME" value="mod_standings"/>
+            <param name="PREFIX" value=""/>
+        </antcall>
+        <antcall target="buildmodule">
+            <param name="NAME" value="mod_scoreboard"/>
+            <param name="PREFIX" value=""/>
+        </antcall>
+    </target>
+    <target name="sync">
+        <antcall target="_sync">
+            <param name="NAME" value="com_hockey"/>
+        </antcall>
+         <antcall target="_sync">
+            <param name="NAME" value="mod_topplayer"/>
+        </antcall>
+        <antcall target="_sync">
+            <param name="NAME" value="mod_calendar"/>
+        </antcall>
+        <antcall target="_sync">
+            <param name="NAME" value="mod_matchdays"/>
+        </antcall>
+        <antcall target="_sync">
+            <param name="NAME" value="mod_standings"/>
+        </antcall>
+        <antcall target="_sync">
+            <param name="NAME" value="mod_scoreboard"/>
+        </antcall>
+    </target>
+</project>
