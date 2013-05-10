@@ -7,46 +7,52 @@
  * @author      Klich Jarosław
  */
 defined('_JEXEC') or die;
-
 /**
  * Hockey helper.
  */
 class HockeyHelper
 {
-	/**
-	 * Configure the Linkbar.
-	 */
-	public static function addSubmenu($vName = '')
-	{
-		JHtmlSidebar::addEntry(
-			JText::_('COM_HOCKEY_TITLE_SYSTEMS'),
-			'index.php?option=com_hockey&view=systems',
-			$vName == 'info'
-		);
 
-	}
+    /**
+     * Configure the Linkbar.
+     */
+    public static function addSubmenu($vName = '')
+    {
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_INFO'), 'index.php?option=com_hockey', ("info" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_PLAYERS'), 'index.php?option=com_hockey&view=players', ("players" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_TEAMS'), 'index.php?option=com_hockey&view=teams', ("teams" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_REFEREES'), 'index.php?option=com_hockey&view=referees', ("referees" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_SEASON'), 'index.php?option=com_hockey&view=sezon', ("sezon" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_SELECTSEASON'), 'index.php?option=com_hockey&view=select', ("select" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_MATCHES'), 'index.php?option=com_hockey&view=league', ("league" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_PLAYOFF'), 'index.php?option=com_hockey&view=playoff', ("playoff" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_SPARRING'), 'index.php?option=com_hockey&view=sparring', ("sparring" === $vName));
+        JHtmlSidebar::addEntry(JText::_('HOC_NAV_TABLE'), 'index.php?option=com_hockey&view=tabela', ("tabela" === $vName));
+       
+    }
 
-	/**
-	 * Gets a list of the actions that can be performed.
-	 *
-	 * @return	JObject
-	 * @since	1.6
-	 */
-	public static function getActions()
-	{
-		$user	= JFactory::getUser();
-		$result	= new JObject;
+    /**
+     * Gets a list of the actions that can be performed.
+     *
+     * @return	JObject
+     * @since	1.6
+     */
+    public static function getActions()
+    {
+        $user = JFactory::getUser();
+        $result = new JObject;
 
-		$assetName = 'com_hockey';
+        $assetName = 'com_hockey';
 
-		$actions = array(
-			'core.admin', 'core.manage', 'core.create', 'core.edit', 'core.edit.own', 'core.edit.state', 'core.delete'
-		);
+        $actions = array(
+            'core.admin', 'core.manage', 'core.create', 'core.edit', 'core.edit.own', 'core.edit.state', 'core.delete'
+        );
 
-		foreach ($actions as $action) {
-			$result->set($action, $user->authorise($action, $assetName));
-		}
+        foreach ($actions as $action) {
+            $result->set($action, $user->authorise($action, $assetName));
+        }
 
-		return $result;
-	}
+        return $result;
+    }
+
 }
