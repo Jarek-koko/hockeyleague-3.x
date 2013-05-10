@@ -17,6 +17,10 @@ if (!JFactory::getUser()->authorise('core.manage', 'com_hockey'))
 // Include dependancies
 jimport('joomla.application.component.controller');
 
+// Import CSS
+$document = JFactory::getDocument();
+$document->addStyleSheet('components/com_hockey/assets/css/hockey.css');
+
 $controller	= JControllerLegacy::getInstance('Hockey');
 $controller->execute(JFactory::getApplication()->input->get('task'));
 $controller->redirect();
