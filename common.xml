@@ -18,7 +18,7 @@
     </target>
     
     <target name="_sync">
-        <sync todir="${NAME}" includeemptydirs="true">
+        <sync todir="${NAME}" includeemptydirs="true" failonerror="false">
             <fileset dir="${builddir}/${NAME}"/>
             <preserveintarget>
                 <include name="**/.git/**"/>

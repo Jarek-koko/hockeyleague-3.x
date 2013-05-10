@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component"  version="3.0.2" method="upgrade">
+    <name>com_hockey</name>
+    <creationDate>2013-05-07</creationDate>
+    <copyright>Copyright (C) 2013. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Klich Jarosław</author>
+    <authorEmail>Jarek.koko+HockeyLeague@gmail.com</authorEmail>
+    <authorUrl>http://hockeyleague.jarek.yum.pl/</authorUrl>
+    <version>1.0.0</version>
+    <description>Hockey League</description>
+    
+    <scriptfile>script.php</scriptfile>
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <update> <!-- Runs on update; New in 2.5 -->
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <files folder="site">
+        <filename>controller.php</filename>
+        <filename>hockey.php</filename>
+        <filename>router.php</filename>
+        <filename>index.html</filename>
+        <folder>models</folder>
+        <folder>views</folder>
+        <folder>helpers</folder>
+        <folder>language</folder>
+    </files>
+    
+    <media folder="media" destination="com_hockey">
+        <filename>index.html</filename>
+        <folder>css</folder>
+        <folder>images</folder>
+        <folder>js</folder>
+    </media>
+	
+    <administration>
+        <menu img="components/com_hockey/assets/images/icon-16-menu-hockey.png">COM_HOCKEY</menu>
+		
+        <files folder="admin">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>hockey.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="admin">
+            <language tag="en-GB">language/en-GB.com_hockey.ini</language>
+            <language tag="en-GB">language/en-GB.com_hockey.sys.ini</language>
+        </languages>
+    </administration>
+</extension>
+
