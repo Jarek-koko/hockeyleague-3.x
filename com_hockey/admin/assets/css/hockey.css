@@ -1,0 +1,16 @@
+.icon-48-systems {
+      background-image: url(../images/l_systems.png);
+      padding-left:60px!important;
+}
+
+.icon-48-system {
+      background-image: url(../images/l_systems.png);
+      padding-left:60px!important;
+}
+
+/*page info*/
+#ht .hockey-ok{float:right; color: green}
+#ht .hockey-error{float:right; color: red}
+#ht .hockey-ok i, #ht .hockey-error i {margin-right:10px}
+
+
