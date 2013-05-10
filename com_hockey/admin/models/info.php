@@ -32,10 +32,10 @@ class HockeyModelInfo extends JModelList
         
 
         if ($num_rows > 0) {
-            $result = Array('ok' => true, 'mesg' => JText::_('INSTALLED'));
+            $result = Array('ok' => true, 'mesg' => JText::_('HOC_INSTALLED'));
             return $result;
         } else {
-            $result = Array('ok' => false, 'mesg' => JText::_('NOT INSTALLED'));
+            $result = Array('ok' => false, 'mesg' => JText::_('HOC_NOT_INSTALLED'));
             return $result;
         }
     }
@@ -49,8 +49,8 @@ class HockeyModelInfo extends JModelList
         $info['author'] = (string) $xml->author;
         $info['version'] = (string) $xml->version;
         $info['copyright'] = (string) $xml->copyright;
-        $info['authorurl'] = (string) $xml->authorurl;
-        $info['creationdate'] = (string) $xml->creationdate;
+        $info['authorurl'] = (string) $xml->authorUrl;
+        $info['creationdate'] = (string) $xml->creationDate;
         list($link, $gpl) = explode(' ', (string) $xml->license);
         $info['gpl'] = $gpl;
         $info['gpllink'] = $link;
