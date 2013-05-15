@@ -1,35 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<fieldset name="component"
-		label="COM_HOCKEY_COMPONENT_LABEL"
-		description="COM_HOCKEY_COMPONENT_DESC"
-	>
+    <fieldset name="component" label="COM_HOCKEY_GENERAL_SETTINGS">             
+        <field 
+            name="iddsfp" 
+            type="sql" 
+            label="COM_HOCKEY_GENERAL_DEFAULT_SEASON" 
+            description="COM_HOCKEY_GENERAL_DEFAULT_SEASON_DESC" 
+            query="SELECT id AS value, name AS iddsfp FROM #__hockey_system ORDER BY ordering DESC"  
+        />
+        
+        <field name="gnumber" type="radio" class="btn-group" default="1" label="COM_HOCKEY_NAME_GNUMBER_TITLE" description="COM_HOCKEY_NAME_GNUMBER_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+    </fieldset>
+    
+    <fieldset name="playoff" label="COM_HOCKEY_NAME_PLAY-OFF">
+        <field name="round1" type="text" default="Round 1"      label="COM_HOCKEY_ROUND_1"  size="30" />
+        <field name="round2" type="text" default="Round 2"      label="COM_HOCKEY_ROUND_2"  size="30" />
+        <field name="round3" type="text" default="Round 3"      label="COM_HOCKEY_ROUND_3"  size="30" />
+        <field name="round4" type="text" default="Round 4"      label="COM_HOCKEY_ROUND_4"  size="30" />
+        <field name="round5" type="text" default="Round 5"      label="COM_HOCKEY_ROUND_5"  size="30" />
+        <field name="round6" type="text" default="Round 6"      label="COM_HOCKEY_ROUND_6"  size="30" />
+        <field name="round7" type="text" default="Quarterfinal" label="COM_HOCKEY_ROUND_7"  size="30" />
+        <field name="round8" type="text" default="Semifinal"    label="COM_HOCKEY_ROUND_8"  size="30" />
+        <field name="round9" type="text" default="Final"        label="COM_HOCKEY_ROUND_9"  size="30" />
+    </fieldset>
+    
+    <fieldset name="sparrings" label="COM_HOCKEY_NAME_SPARRINGS">
+        <field name="name1" type="text" default="Sparring"          label="COM_HOCKEY_NAME_1"  size="30" />
+        <field name="name2" type="text" default="Tournament"        label="COM_HOCKEY_NAME_2"  size="30" />
+        <field name="name3" type="text" default="Cup"               label="COM_HOCKEY_NAME_3"  size="30" />
+        <field name="name4" type="text" default="Friendly match"    label="COM_HOCKEY_NAME_4"  size="30" />
+        <field name="name5" type="text" default="Sparring 1"        label="COM_HOCKEY_NAME_5"  size="30" />
+        <field name="name6" type="text" default="Sparring 2"        label="COM_HOCKEY_NAME_6"  size="30" />
+        <field name="name7" type="text" default="Sparring 3"        label="COM_HOCKEY_NAME_7"  size="30" />
+        <field name="name8" type="text" default="Sparring 4"        label="COM_HOCKEY_NAME_8"  size="30" />
+        <field name="name9" type="text" default="Sparring 5"        label="COM_HOCKEY_NAME_9"  size="30" />
+    </fieldset>
 
-        <field name="test"
-             type="radio"
-             default="1"
-             label="COM_HOCKEY_TEST_LABEL"
-             description="COM_HOCKEY_TEST_DESC">
-                 <option value="0">JHIDE</option>
-                 <option value="1">JSHOW</option>
-         </field>
-
-	</fieldset>
-
-	<fieldset name="permissions"
-		description="JCONFIG_PERMISSIONS_DESC"
-		label="JCONFIG_PERMISSIONS_LABEL"
-	>
-
-		<field 
+    <fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC"  label="JCONFIG_PERMISSIONS_LABEL">
+        <field  
             name="rules" 
-            type="rules"
-			component="com_hockey"
-            class="inputbox"
-			filter="rules"
-			validate="rules"
-			label="JCONFIG_PERMISSIONS_LABEL"
-			section="component" />
-	</fieldset>
-
+            type="rules" 
+            component="com_hockey" 
+            class="inputbox" 
+            filter="rules"
+            validate="rules"
+            label="JCONFIG_PERMISSIONS_LABEL" 
+            section="component" 
+        />
+    </fieldset>
 </config>

@@ -32,10 +32,10 @@ class HockeyModelInfo extends JModelList
         
 
         if ($num_rows > 0) {
-            $result = Array('ok' => true, 'mesg' => JText::_('HOC_INSTALLED'));
+            $result = Array('ok' => true, 'mesg' => JText::_('COM_HOCKEY_INSTALLED'));
             return $result;
         } else {
-            $result = Array('ok' => false, 'mesg' => JText::_('HOC_NOT_INSTALLED'));
+            $result = Array('ok' => false, 'mesg' => JText::_('COM_HOCKEY_NOT_INSTALLED'));
             return $result;
         }
     }

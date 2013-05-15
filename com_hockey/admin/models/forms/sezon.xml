@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field name="id" type="text" default="0" label="COM_HOCKEY_FORM_LBL_SEZON_ID"
+               readonly="true" class="readonly" /> 
+
+        <field name="name" type="text" size="40" maxlength="50" 
+               class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_SEZON_NAME"
+               description="COM_HOCKEY_FORM_DES_SEZON_NAME"
+               required="true" 
+               filter="safehtml" /> 
+
+        <field name="p_w" type="list" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_SEZON_P_W"
+               default="0">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>   
+        </field> 
+
+        <field name="p_r" type="list" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_SEZON_P_R"
+               default="0" >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>   
+        </field>  
+
+        <field name="p_p" type="list" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_SEZON_P_P"
+               default="0"> 
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>   
+        </field> 
+
+        <field name="p_d_w" type="list" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_SEZON_P_D_W"
+               default="0" >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>   
+        </field> 
+
+        <field name="p_d_p" type="list" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_SEZON_P_D_P"
+               default="0">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>   
+        </field> 
+
+        <field name="overtime" type="radio"
+               class="btn-group"
+               label="COM_HOCKEY_FORM_LBL_SEZON_OVERTIME"
+               default="F" labelclass="control-label">
+            <option value="F">JNO</option>
+            <option value="T">JYES</option>
+        </field> 
+        
+        <field name="p_k_w" type="list" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_SEZON_P_K_W"
+               default="0">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>   
+        </field> 
+
+        <field name="p_k_p" type="list" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_SEZON_P_K_P"
+               default="0">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>   
+        </field>  
+
+        <field name="shutouts" type="radio"
+               class="btn-group"
+               label="COM_HOCKEY_FORM_LBL_SEZON_PENALTY"
+               default="F" >
+            <option value="F">JNO</option>
+            <option value="T">JYES</option>
+        </field> 
+        
+       
+        <field name="year" type="text" class="inputbox validate-numeric"
+               size="4" maxlength="4" 
+               label="COM_HOCKEY_FORM_LBL_SEZON_YEAR"
+               filter="safehtml" /> 
+
+        <field name="state" type="list"
+               label="JSTATUS"
+               class="inputbox small"
+               size="1"
+               default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+
+        <field name="ordering" type="Ordering" class="inputbox"
+               label="JFIELD_ORDERING_LABEL"
+        />
+
+        <field name="created" type="calendar"
+               label="JGLOBAL_FIELD_CREATED_LABEL" 
+               class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"
+               filter="user_utc" />
+
+        <field name="created_by" type="user"
+               label="JGLOBAL_FIELD_CREATED_BY_LABEL" 
+        />
+
+        <field name="modified" type="calendar" 
+               class="readonly"
+               label="JGLOBAL_FIELD_MODIFIED_LABEL" 
+               size="22" readonly="true" format="%Y-%m-%d %H:%M:%S"
+               filter="user_utc" />
+
+        <field name="modified_by" type="user"
+               label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+               class="readonly"
+               readonly="true"
+               filter="unset"  />
+
+    </fieldset>
+
+</form>

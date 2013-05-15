@@ -1,11 +1,10 @@
-.icon-48-systems {
-      background-image: url(../images/l_systems.png);
+.icon-48-logo {
+      background-image: url(../images/logo.png);
       padding-left:60px!important;
 }
 
-.icon-48-system {
-      background-image: url(../images/l_systems.png);
-      padding-left:60px!important;
+.form-horizontal .controls {
+    margin-left: 200px !important;
 }
 
 /*page info*/
