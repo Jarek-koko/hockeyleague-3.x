@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field name="id" type="text" default="0" 
+               label="COM_HOCKEY_FORM_LBL_TABLE_ID"
+               readonly="true" class="readonly"
+        /> 
+
+        <field name="team_id" type="sql" class="inputbox validate-notzero"
+               label="COM_HOCKEY_FORM_LBL_TABLE_TEAM_ID"
+               required="true" 
+               query="SELECT 0 AS `id`, '- Select Team -' AS `name` UNION SELECT `id`, `name` FROM `#__hockey_teams` WHERE state=1 ORDER BY name" 
+               key_field="id" 
+               value_field="name"
+        /> 
+
+        <field name="matchday" type="text" 
+               size="40" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_TABLE_MATCHDAY"
+               default="0" 
+               filter="integer" 
+        /> 
+
+        <field name="points" type="text" 
+               size="40" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_TABLE_POINTS"
+               default="0" 
+               filter="integer" 
+        /> 
+
+        <field name="won" type="text" 
+               size="40" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_TABLE_WON"
+               default="0" 
+               filter="integer" 
+        /> 
+
+        <field name="ties" type="text" 
+               size="40" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_TABLE_TIES"
+               default="0" 
+               filter="integer" 
+        /> 
+
+        <field name="lost" type="text" size="40" 
+               class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_TABLE_LOST"
+               default="0" 
+               filter="integer" 
+        /> 
+
+        <field name="goals_scored" type="text" 
+               size="40" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_TABLE_GOALS_SCORED"
+               default="0"  
+               filter="integer" 
+        /> 
+
+        <field name="goals_against" type="text" 
+               size="40" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_TABLE_GOALS_AGAINST"
+               default="0" 
+               filter="integer" 
+        /> 
+
+        <field name="difference" type="text" 
+               size="40" class="inputbox validate-numeric"      
+               label="COM_HOCKEY_FORM_LBL_TABLE_DIFFERENCE"
+               default="0"    
+               filter="safehtml" 
+        /> 
+
+        <field name="id_system" type="hidden"  default="0" /> 
+
+        <field
+            name="group" type="list"
+            label="COM_HOCKEY_FORM_LBL_TABLE_GROUP"
+            class="inputbox"
+            size="1"
+            default="0">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </field>
+
+        <field name="created" type="calendar" 
+               class="inputbox" size="22"
+               format="%Y-%m-%d %H:%M:%S"
+               label="JGLOBAL_FIELD_CREATED_LABEL"
+               filter="user_utc" labelclass="control-label"
+        /> 
+        <field name="created_by" type="user"
+               label="JGLOBAL_FIELD_CREATED_BY_LABEL"
+               labelclass="control-label"
+        /> 
+        <field name="modified" type="calendar" 
+               class="readonly"  labelclass="control-label"
+               label="JGLOBAL_FIELD_MODIFIED_LABEL"
+               size="22" readonly="true" format="%Y-%m-%d %H:%M:%S"
+               filter="user_utc" 
+        /> 
+        <field name="modified_by" type="user"
+               label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+               class="readonly" labelclass="control-label"
+               readonly="true"
+               filter="unset" 
+        />
+        <field
+            name="state" type="list"
+            label="JSTATUS"
+            class="inputbox"
+            size="1"
+            default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+    </fieldset>
+
+</form>

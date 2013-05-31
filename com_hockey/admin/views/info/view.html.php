@@ -58,8 +58,7 @@ class HockeyViewInfo extends JViewLegacy
 	protected function addToolbar()
 	{
 		require_once JPATH_COMPONENT.'/helpers/hockey.php';
-         $info = 'Not selected season';
-        JToolBarHelper::title(JText::_('COM_HOCKEY_INFO') . ' : ' . $info, 'logo.png');
+        JToolBarHelper::title(JText::_('COM_HOCKEY_INFO') , 'logo.png');
 
 		$canDo	= HockeyHelper::getActions();
 

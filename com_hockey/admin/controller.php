@@ -9,13 +9,17 @@
 defined('_JEXEC') or die;
 
 
-if(!defined('DS')){
-   define('DS',DIRECTORY_SEPARATOR);
+if (!defined('DS')) {
+    define('DS', DIRECTORY_SEPARATOR);
 }
-
-
 class HockeyController extends JControllerLegacy
 {
+    /**
+     *
+     * @var array -  all views which need to be checked 
+     * if season was selected 
+     */
+    public $views_check = array("table", "tables", "league", "leagues", "playoff", "playoffs", "sparring", "sparrings", "report", "matchdays", "matchday");
 
     /**
      * Method to display a view.
@@ -33,9 +37,49 @@ class HockeyController extends JControllerLegacy
         $view = JFactory::getApplication()->input->getCmd('view', 'info');
         JFactory::getApplication()->input->set('view', $view);
 
+        if ($view == 'sezons' || $view == 'sezon') {
+            $this->ACLCheck();
+        }
+
+
+        if (in_array($view, $this->views_check)) {
+            $this->SezonCheck();
+        }
+
         parent::display($cachable, $urlparams);
 
         return $this;
+    }
+
+    /**
+     * Method to check authorisation for section sezon
+     * @return boolean
+     */
+    private function ACLCheck()
+    {
+        if (!JFactory::getUser()->authorise('hockey.manage.sezon', 'com_hockey')) {
+            $this->setError(JText::_('JERROR_ALERTNOAUTHOR'));
+            $this->setMessage($this->getError(), 'error');
+            $this->setRedirect(JRoute::_('index.php?option=com_hockey&view=info', false));
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Method to check season selected  
+     * @return boolean 
+     */
+    public function SezonCheck()
+    {
+        if (!HockeyHelper::getSezon()) {
+            $this->setError(JText::_('COM_HOCKEY_MUST_SELECT_SEASON'));
+            $this->setMessage($this->getError(), 'notice');
+            $this->setRedirect(JRoute::_('index.php?option=com_hockey&view=select', false));
+            return false;
+        }
+        return true;
     }
 
 }

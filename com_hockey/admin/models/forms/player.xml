@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field name="id" 
+               type="text" default="0" 
+               label="COM_HOCKEY_FORM_LBL_PLAYER_ID"
+               readonly="true" class="readonly"
+        /> 
+    
+        <field name="name" type="text" 
+               size="40" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_NAME"
+               required="true" 
+               filter="safehtml" /> 
+
+        <field name="first_name" type="text" 
+               size="40" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_FIRST_NAME"
+               required="true" 
+               filter="safehtml" /> 
+        
+        <field name="alias" type="text" class="inputbox"
+               size="40" label="JFIELD_ALIAS_LABEL" 
+        />
+
+        <field name="position" type="radio"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_POSITION"
+               class="btn-group" default="3">
+            <option value="1">COM_HOCKEY_POSITION_GOALTENDER</option>
+            <option value="2">COM_HOCKEY_POSITION_DEFENCEMEN</option>
+            <option value="3">COM_HOCKEY_POSITION_FORWARD</option>
+        </field> 
+
+        <field name="date_of_birth" type="calendar"            
+               label="COM_HOCKEY_FORM_LBL_PLAYER_DATE_OF_BIRTH"
+               filter="raw" /> 
+
+        <field name="height" type="text" 
+               size="40" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_HEIGHT"
+               filter="safehtml" /> 
+
+        <field name="weight" type="text" 
+               size="40" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_WEIGHT"
+               filter="safehtml" 
+        /> 
+
+        <field name="team_id" type="sql"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_TEAM"
+               required="true"  class="inputbox validate-notzero"
+               query="SELECT 0 AS `id`, '- Select Team -' AS `name` UNION SELECT `id`, `name` FROM `#__hockey_teams` WHERE state=1 ORDER BY name" 
+               key_field="id" 
+               value_field="name"
+        /> 
+
+        <field name="team_old" type="text" size="40" class="inputbox"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_TEAM_OLD"
+               filter="safehtml" 
+        /> 
+
+        <field name="photo" type="media"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_PHOTO"
+               description="COM_HOCKEY_FORM_DESC_PLAYER_PHOTO" 
+               filter="raw"
+               directory="hockey/players" 
+        /> 
+
+        <field name="description" type="editor"   class="inputbox"             
+               label="COM_HOCKEY_FORM_LBL_PLAYER_DESCRIPTION"
+               filter="JComponentHelper::filterText" buttons="false" 
+        /> 
+        
+        <field name="number" type="text" 
+               size="3" class="inputbox validate-numeric"
+               label="COM_HOCKEY_FORM_LBL_PLAYER_NUMBER"
+               filter="safehtml" 
+        /> 
+
+        <field
+            name="state" type="list"
+            label="JSTATUS"
+            class="inputbox"
+            size="1"
+            default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        
+        <field name="created" type="calendar" 
+               class="inputbox" size="22"
+               format="%Y-%m-%d %H:%M:%S"
+               label="JGLOBAL_FIELD_CREATED_LABEL"
+               filter="user_utc" labelclass="control-label"
+        /> 
+
+        <field name="created_by" type="user"
+               label="JGLOBAL_FIELD_CREATED_BY_LABEL"
+               labelclass="control-label"
+        /> 
+
+        <field name="modified" type="calendar" 
+               class="readonly"  labelclass="control-label"
+               label="JGLOBAL_FIELD_MODIFIED_LABEL"
+               size="22" readonly="true" format="%Y-%m-%d %H:%M:%S"
+               filter="user_utc" 
+        /> 
+
+        <field name="modified_by" type="user"
+               label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+               class="readonly" labelclass="control-label"
+               readonly="true"
+               filter="unset" 
+        />
+    </fieldset>
+</form>

@@ -74,10 +74,8 @@ class HockeyTableSezon extends JTable
             $this->setError(JText::_('COM_HOCKEY_ERR_UNIQUE_NAME'));
             return false;
         }
-
-
-        $result = parent::store($updateNulls);
-        return $result;
+        
+        return parent::store($updateNulls);
     }
 
     /**

@@ -42,19 +42,15 @@ class HockeyViewSezon extends JViewLegacy
     {
         JFactory::getApplication()->input->set('hidemainmenu', true);
 
-        $canCreate = false;
-
         $canDo = HockeyHelper::getActions();
-
-        $info = HockeyHelper::getNameSez();
-        JToolBarHelper::title(JText::_('COM_HOCKEY_SEASON_TITLE') . ' : ' . $info, 'logo.png');
+        JToolBarHelper::title(JText::_('COM_HOCKEY_SEASON_TITLE') , 'logo.png');
 
         // If not checked out, can save the item.
-        if (!$canCreate && ($canDo->get('core.edit') || ($canDo->get('core.create')))) {
+        if ( ($canDo->get('core.edit') || ($canDo->get('core.create')))) {
             JToolBarHelper::apply('sezon.apply', 'JTOOLBAR_APPLY');
             JToolBarHelper::save('sezon.save', 'JTOOLBAR_SAVE');
         }
-        if (!$canCreate && ($canDo->get('core.create'))) {
+        if (($canDo->get('core.create'))) {
             JToolBarHelper::custom('sezon.save2new', 'save-new.png', 'save-new_f2.png', 'JTOOLBAR_SAVE_AND_NEW', false);
         }
 

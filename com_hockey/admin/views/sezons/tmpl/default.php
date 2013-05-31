@@ -6,7 +6,6 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      Klich Jarosław
  */
-
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
@@ -39,7 +38,6 @@ $sortFields = $this->getSortFields();
         Joomla.tableOrdering(order, dirn, '');
     }
 </script>
-
 <form action="<?php echo JRoute::_('index.php?option=com_hockey&view=sezons'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty($this->sidebar)): ?>
     <div id="j-sidebar-container" class="span2">
@@ -98,7 +96,7 @@ $sortFields = $this->getSortFields();
             <th width="1%" class="nowrap center">
                 <?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.state', $listDirn, $listOrder); ?>
             </th>
-            <th class='left'>
+            <th class='left nowrap'>
                 <?php echo JHtml::_('grid.sort', 'COM_HOCKEY_NAMESEASONS', 'a.name', $listDirn, $listOrder); ?>
             </th>
              <th class="left nowrap hidden-phone">
@@ -110,7 +108,7 @@ $sortFields = $this->getSortFields();
              <th class="left nowrap hidden-phone">
                 <?php echo JText::_('COM_HOCKEY_CREATION_DATE'); ?>
             </th>
-             <th width="1%" class="nowrap center hidden-phone">
+             <th width="1%" class="nowrap center">
                 <?php echo JHtml::_('grid.sort', 'COM_HOCKEY_YEAR', 'a.year', $listDirn, $listOrder); ?>
             </th>
             <th width="1%" class="nowrap center hidden-phone">
@@ -156,8 +154,7 @@ foreach ($this->items as $i => $item) :
                 if (!$saveOrder) :
                     $disabledLabel = JText::_('JORDERINGDISABLED');
                     $disableClassName = 'inactive tip-top';
-                endif;
-                ?>
+            endif; ?>
                 <span class="sortable-handler hasTooltip <?php echo $disableClassName ?>" title="<?php echo $disabledLabel ?>">
                     <i class="icon-menu"></i>
                 </span>
@@ -194,7 +191,6 @@ foreach ($this->items as $i => $item) :
 <?php endforeach; ?>
 </tbody>
 </table>
-
 <input type="hidden" name="task" value="" />
 <input type="hidden" name="boxchecked" value="0" />
 <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />

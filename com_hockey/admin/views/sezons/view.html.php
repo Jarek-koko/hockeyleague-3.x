@@ -53,8 +53,7 @@ class HockeyViewSezons extends JViewLegacy
         $state = $this->get('State');
         $canDo = HockeyHelper::getActions();
 
-        $info = HockeyHelper::getNameSez();
-        JToolBarHelper::title(JText::_('COM_HOCKEY_SEASON_TITLE') . ' : ' . $info, 'logo.png');
+        JToolBarHelper::title(JText::_('COM_HOCKEY_SEASONS_TITLE') , 'logo.png');
 
         if ($canDo->get('core.create')) {
             JToolBarHelper::addNew('sezon.add');

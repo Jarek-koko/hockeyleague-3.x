@@ -12,4 +12,10 @@
 #ht .hockey-error{float:right; color: red}
 #ht .hockey-ok i, #ht .hockey-error i {margin-right:10px}
 
+.menu-border {
+  list-style: circle;
+  margin-left: 15px;
+}
 
+#info-space span {font-weight: 600; padding-right: 5px}
+#info-space  {font-style: italic}
