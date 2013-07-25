@@ -9,9 +9,6 @@
 defined('_JEXEC') or die;
 
 
-if (!defined('DS')) {
-    define('DS', DIRECTORY_SEPARATOR);
-}
 class HockeyController extends JControllerLegacy
 {
     /**
@@ -19,8 +16,9 @@ class HockeyController extends JControllerLegacy
      * @var array -  all views which need to be checked 
      * if season was selected 
      */
-    public $views_check = array("table", "tables", "league", "leagues", "playoff", "playoffs", "sparring", "sparrings", "report", "matchdays", "matchday");
+    public $views_check = array("table", "tables", "league", "leagues", "playoff", "playoffs", "sparring", "sparrings", "report", "matchday");
 
+    
     /**
      * Method to display a view.
      *
@@ -51,6 +49,8 @@ class HockeyController extends JControllerLegacy
         return $this;
     }
 
+    
+    
     /**
      * Method to check authorisation for section sezon
      * @return boolean
@@ -67,6 +67,8 @@ class HockeyController extends JControllerLegacy
         return true;
     }
 
+    
+    
     /**
      * Method to check season selected  
      * @return boolean 

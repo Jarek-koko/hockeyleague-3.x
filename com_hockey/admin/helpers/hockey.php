@@ -12,7 +12,6 @@ defined('_JEXEC') or die;
  */
 class HockeyHelper
 {
-
     /**
      * Configure the Linkbar.
      */
@@ -243,6 +242,7 @@ class HockeyHelper
         JFactory::getDocument()->addScriptDeclaration($sc);
     }
 
+    
     /**
      * Method to get the script that have to be included on the form
      *
@@ -258,6 +258,8 @@ class HockeyHelper
         JFactory::getDocument()->addScriptDeclaration($sc);
     }
 
+    
+    
     /**
      * Method to get the script that have to be included on the form
      *
@@ -272,6 +274,8 @@ class HockeyHelper
         JFactory::getDocument()->addScriptDeclaration($sc1);
     }
 
+    
+    
     /**
      * Method to get the script that have to be included on the form
      *

@@ -5,11 +5,11 @@
     <property name="release" 	value="${env.RELEASEDIR}\hockeyleague3.x\Releases" />
     <property name="builddir" 	value="${env.BUILDDIR}" />
     <property name="verbose" 	value="true" />
-    
+ 
     <tstamp>
-        <format property="NOW" pattern="hh_mm_dd-MM-yyyy" />
+        <format property="NOW" pattern="dd-MM-yyyy" />
     </tstamp>
-    
+
     <property name="version" value="${NOW}" />
 
     
@@ -48,7 +48,7 @@
     </target>
     
     <target name="buildcomponent" depends="_clean">
-        
+
         <mkdir dir="${builddir}/${NAME}/site"/>
         <mkdir dir="${builddir}/${NAME}/admin"/>
         <mkdir dir="${builddir}/${NAME}/media"/>
@@ -86,7 +86,7 @@
         
         <copy todir="${builddir}/${NAME}/media" overwrite="true" verbose="${verbose}"  failonerror="false">
             <fileset dir="${source}/media/${NAME}"/>
-         </copy>
+        </copy>
         
         <copy todir="${builddir}/${NAME}/site" overwrite="true" verbose="${verbose}">
             <fileset dir="${source}/components/${NAME}"/>

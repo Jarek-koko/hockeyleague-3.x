@@ -26,7 +26,7 @@ $url = JURI::base() . 'index.php?option=com_hockey&task=ajax.setMatchday&' . JSe
         // timePicer
         js("#time_e").timePicker({
             startTime: "07:00",
-            endTime: "23:45", // Using Date object here.
+            endTime: "23:45", 
             show24Hours: true,
             separator: ':',
             step: 15
@@ -57,8 +57,8 @@ $url = JURI::base() . 'index.php?option=com_hockey&task=ajax.setMatchday&' . JSe
         // cloning rows input form
         js("#add-input").click(function() {
             var num = js('.clonedInput').length, // how many "duplicatable" input fields we currently have
-                    newNum = new Number(num + 1), // the numeric ID of the new input field being added
-                    newElem = js('#entry' + num).clone().attr('id', 'entry' + newNum);
+            newNum = new Number(num + 1), // the numeric ID of the new input field being added
+            newElem = js('#entry' + num).clone().attr('id', 'entry' + newNum);
             // matchday
             newElem.find('.label_id_kolejka').attr('for', 'id_kolejka' + newNum);
             newElem.find('.input_id_kolejka').attr('id', 'id_kolejka' + newNum).attr('name', 'id_kolejka' + newNum).val('');
