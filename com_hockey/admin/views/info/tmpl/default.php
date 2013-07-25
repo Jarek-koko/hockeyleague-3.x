@@ -8,6 +8,7 @@
  */
 defined('_JEXEC') or die;
 ?>
+<form action="<?php echo JRoute::_('index.php?option=com_hockey'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty($this->sidebar)) : ?>
 <div id="j-sidebar-container" class="span2">
     <?php echo $this->sidebar; ?>
@@ -80,11 +81,12 @@ defined('_JEXEC') or die;
             <p><span><?php echo JText::_('COM_HOCKEY_CREATIONDATE'); ?>:</span> <?php echo $this->info['creationdate']; ?></p>
             <p><span><?php echo JText::_('COM_HOCKEY_COPYRIGHT'); ?>:</span> <?php echo $this->info['copyright']; ?></p>
             <p><span><?php echo JText::_('COM_HOCKEY_AUTHOR_URL'); ?>:</span> <a href="<?php echo $this->info['authorurl']; ?>"><?php echo $this->info['authorurl']; ?></a></p>
-            <p><span><?php echo JText::_('COM_HOCKEY_GPL'); ?>:</span> <a href="<?php echo $this->info['gpllink']; ?>"><?php echo $this->info['gpl']; ?></a></p>
+            <p><span><?php echo JText::_('COM_HOCKEY_GPL'); ?>:</span> <a href="http://www.gnu.org/licenses/gpl-2.0.html"><?php echo $this->info['gpl']; ?></a></p>
         </div>
     </div>
 </div>
 </div>
+</form>
 
 
 

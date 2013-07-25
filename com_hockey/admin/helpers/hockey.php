@@ -25,19 +25,19 @@ class HockeyHelper
         JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_SEASON'), 'index.php?option=com_hockey&view=sezons', ("sezons" === $vName));
         JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_SELECTSEASON'), 'index.php?option=com_hockey&view=select', ("select" === $vName));
 
-        $script = "jQuery(document).ready(function(){ \n"; 
-        $script .=  "jQuery('#submenu li:eq(0)').before('<li class=\"nav-header\">".JText::_('COM_HOCKEY_NAV_MAIN')."</li>'); \n";    
-        
-            if (self::getSezon()) {
-                JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_TABLE'), 'index.php?option=com_hockey&view=tables', ("tables" === $vName));
-                JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_MATCHES'), 'index.php?option=com_hockey&view=leagues', ("leagues" === $vName));
-                JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_PLAYOFF'), 'index.php?option=com_hockey&view=matches&typ=1', ("playoff" === $vName));
-                JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_SPARRING'), 'index.php?option=com_hockey&view=matches&typ=2', ("sparring" === $vName));
+        $script = "jQuery(document).ready(function(){ \n";
+        $script .= "jQuery('#submenu li:eq(0)').before('<li class=\"nav-header\">" . JText::_('COM_HOCKEY_NAV_MAIN') . "</li>'); \n";
 
-                $script .=  "jQuery('#submenu li').slice(-4).addClass('menu-border');\n";
-                $script .=  "jQuery('#submenu li:eq(7)').before('<li class=\"nav-header\">".JText::_('COM_HOCKEY_NAV_MSEASON')." ".self::getNameSez() ."</li>');\n";                 
-            }
-        
+        if (self::getSezon()) {
+            JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_TABLE'), 'index.php?option=com_hockey&view=tables', ("tables" === $vName));
+            JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_MATCHES'), 'index.php?option=com_hockey&view=leagues', ("leagues" === $vName));
+            JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_PLAYOFF'), 'index.php?option=com_hockey&view=playoffs', ("playoffs" === $vName));
+            JHtmlSidebar::addEntry(JText::_('COM_HOCKEY_NAV_SPARRING'), 'index.php?option=com_hockey&view=sparrings', ("sparrings" === $vName));
+
+            $script .= "jQuery('#submenu li').slice(-4).addClass('menu-border');\n";
+            $script .= "jQuery('#submenu li:eq(7)').before('<li class=\"nav-header\">" . JText::_('COM_HOCKEY_NAV_MSEASON') . " " . self::getNameSez() . "</li>');\n";
+        }
+
         $script .= "});\n";
         JFactory::getDocument()->addScriptDeclaration($script);
     }
@@ -56,7 +56,9 @@ class HockeyHelper
         $assetName = 'com_hockey';
 
         $actions = array(
-            'core.admin', 'core.manage', 'core.create', 'core.edit', 'core.edit.own', 'core.edit.state', 'core.delete', 'hockey.manage.sezon'
+            'core.admin', 'core.manage', 'core.create',
+            'core.edit', 'core.edit.own', 'core.edit.state',
+            'core.delete', 'hockey.manage.sezon'
         );
 
         foreach ($actions as $action) {
@@ -73,6 +75,21 @@ class HockeyHelper
     public static function getSezon()
     {
         return (int) JFactory::getApplication()->getUserState('hockey_sezon_id', null);
+    }
+
+    /**
+     *  Method return all period in match 
+     * @return array
+     */
+    public static function getPeriod()
+    {
+        $position = array(
+            '1' => array('value' => '1', 'text' => JText::_('COM_HOCKEY_PERIOD_1')),
+            '2' => array('value' => '2', 'text' => JText::_('COM_HOCKEY_PERIOD_2')),
+            '3' => array('value' => '3', 'text' => JText::_('COM_HOCKEY_PERIOD_3')),
+            '4' => array('value' => '4', 'text' => JText::_('COM_HOCKEY_PERIOD_OVERTIME'))
+        );
+        return $position;
     }
 
     /**
@@ -166,20 +183,20 @@ class HockeyHelper
     public static function getTypeMatch($type)
     {
         switch ($type) {
-            case 2:
-                $p = JText::_('COM_HOCKEY_SPARRING');
+            case 0:
+                $tmp = JText::_('COM_HOCKEY_MATCHES');
                 break;
             case 1:
-                $p = JText::_('COM_HOCKEY_PLAYOFF');
+                $tmp = JText::_('COM_HOCKEY_PLAYOFF');
                 break;
-            case 0:
-                $p = JText::_('COM_HOCKEY_MATCHES');
+            case 2:
+                $tmp = JText::_('COM_HOCKEY_SPARRING');
                 break;
             default:
-                $p = '';
+                $tmp = '';
                 break;
         }
-        return $p;
+        return $tmp;
     }
 
     /**
@@ -210,54 +227,64 @@ class HockeyHelper
         }
         return JHtml::_('select.genericlist', $options, 'sezon_id', '', 'value', 'text', self::getSezon());
     }
-    
-    
-    
+
     /**
-	 * Method to get the script that have to be included on the form
-	 *
-	 * @return string	Script files
-	 */
-	public static function setValidationTime() 
-	{
+     * Method to get the script that have to be included on the form
+     *
+     * @return string	Script files
+     */
+    public static function setValidationTime()
+    {
         $sc = "window.addEvent('domready', function() {
                  document.formvalidator.setHandler('timematch', function(value) {
                  regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]/;
                  return regex.test(value);
                 });});";
-         JFactory::getDocument()->addScriptDeclaration($sc);
-	} 
-    
-    
-    
+        JFactory::getDocument()->addScriptDeclaration($sc);
+    }
+
     /**
-	 * Method to get the script that have to be included on the form
-	 *
-	 * @return string	Script files
-	 */
-	public static function setValidationSelect() 
-	{
+     * Method to get the script that have to be included on the form
+     *
+     * @return string	Script files
+     */
+    public static function setValidationPlayTime()
+    {
+        $sc = "window.addEvent('domready', function() {
+                 document.formvalidator.setHandler('playtime', function(value) {
+                 regex=  /^(\d{2})+(\:|\-|\.)+(\d{2})$/;
+                 return regex.test(value);
+                });});";
+        JFactory::getDocument()->addScriptDeclaration($sc);
+    }
+
+    /**
+     * Method to get the script that have to be included on the form
+     *
+     * @return string	Script files
+     */
+    public static function setValidationSelect()
+    {
         $sc1 = "window.addEvent('domready', function() {
                  document.formvalidator.setHandler('notzero',function(value) {
                     return  (value!='0') ? true : false;
                 });});";
-         JFactory::getDocument()->addScriptDeclaration($sc1);
-	} 
-    
-    
-     /**
-	 * Method to get the script that have to be included on the form
-	 *
-	 * @return string	Script files
-	 */
-	public static function setValidationMatchday() 
-	{
+        JFactory::getDocument()->addScriptDeclaration($sc1);
+    }
+
+    /**
+     * Method to get the script that have to be included on the form
+     *
+     * @return string	Script files
+     */
+    public static function setValidationMatchday()
+    {
         $sc1 = "window.addEvent('domready', function() {
                  document.formvalidator.setHandler('matchday',function(value) {
                  regex=/^(\d|-)?(\d|,)*\.?\d*$/;
                     return ((value > 0 && value < 100) &&  regex.test(value)) ? true : false;
                 });});";
-         JFactory::getDocument()->addScriptDeclaration($sc1);
-	} 
+        JFactory::getDocument()->addScriptDeclaration($sc1);
+    }
 
 }

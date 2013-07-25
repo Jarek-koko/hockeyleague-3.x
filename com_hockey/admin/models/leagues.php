@@ -126,7 +126,9 @@ class HockeyModelLeagues extends JModelList
         $query->select($this->getState('list.select', 'a.*'));
         $query->from('`#__hockey_match` AS a');
 
-
+        $query->where('a.id_system =' . HockeyHelper::getSezon());
+        $query->where('a.type_of_match = 0');
+        
         // Join over the users for the checked out user.
         $query->select('uc.name AS editor');
         $query->join('LEFT', '#__users AS uc ON uc.id=a.checked_out');

@@ -27,7 +27,7 @@ class HockeyModelInfo extends JModelList
         $query->where('module = ' . $db->quote($name));
 
         $db->setQuery($query);
-        $db->query();
+        $db->execute();
         $num_rows = $db->getNumRows();
         
 
@@ -51,10 +51,8 @@ class HockeyModelInfo extends JModelList
         $info['copyright'] = (string) $xml->copyright;
         $info['authorurl'] = (string) $xml->authorUrl;
         $info['creationdate'] = (string) $xml->creationDate;
-        list($link, $gpl) = explode(' ', (string) $xml->license);
-        $info['gpl'] = $gpl;
-        $info['gpllink'] = $link;
-
+        $info['gpl']  =  (string) $xml->license;
+      
         return $info;
     }
 

@@ -23,20 +23,20 @@
         /> 
 
         <field name="id_kolejka" type="text" 
-               size="40" class="inputbox  validate-matchday"
+               size="40" class="input-mini  validate-matchday"
                label="COM_HOCKEY_FORM_LBL_MATCH_ID_KOLEJKA"
                default="0" required="true" 
                filter="safehtml" 
         /> 
 
         <field name="data" type="calendar" 
-               lass="inputbox" default="0000-00-00" 
+               class="input-small" default="0000-00-00" 
                label="COM_HOCKEY_FORM_LBL_MATCH_DATA"
                filter="safehtml" 
         /> 
 
         <field name="time" type="text" 
-               size="40" class="inputbox validate-timematch"
+               size="40" class="input-mini validate-timematch"
                label="COM_HOCKEY_FORM_LBL_MATCH_TIME"
                default="00:00" 
                filter="safehtml" 
@@ -83,6 +83,8 @@
                class="readonly" labelclass="control-label"
                readonly="true"  filter="unset" 
         />
+        <field name="id_system" type="hidden" default="" />
+        <field name="type_of_match" type="hidden" default="" />
     </fieldset>
 
 </form>

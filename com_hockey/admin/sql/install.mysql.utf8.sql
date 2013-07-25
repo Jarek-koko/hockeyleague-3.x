@@ -152,14 +152,8 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
-
-
-
-
-
-
 CREATE TABLE IF NOT EXISTS `#__hockey_match_goalie` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_match` int(11) NOT NULL,
   `id_player` int(11) NOT NULL,
   `time_p` tinyint(4) unsigned DEFAULT NULL,
@@ -176,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match_goalie` (
 
 
 CREATE TABLE IF NOT EXISTS `#__hockey_match_goals` (
-   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_match` int(11) NOT NULL,
   `shooter` int(11) NOT NULL,
   `assist1` int(11) DEFAULT NULL,

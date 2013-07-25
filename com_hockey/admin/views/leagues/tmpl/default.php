@@ -125,7 +125,7 @@ Joomla.orderTable = function() {
             <td class="center hidden-phone"><?php echo JHtml::_('jgrid.published', $item->state, $i, 'leagues.', $canChange, 'cb'); ?></td>
             <td class="hidden-phone">
                 <?php if ($item->checked_out) : ?>
-					<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'hockey.', $canCheckin); ?>
+					<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'leagues.', $canCheckin); ?>
 				<?php endif; ?>
                 <?php echo $item->data; ?>
             </td>
@@ -134,9 +134,14 @@ Joomla.orderTable = function() {
             <td><?php echo $item->team1; ?></td>
             <td><?php echo $item->score_1; ?> : <?php echo $item->score_2; ?></td>
             <td><?php echo $item->team2; ?></td>
-            <td><a  class="btn btn-small btn-info" href='<?php echo JRoute::_('index.php?option=com_hockey&view=report&type=0&id_match=' . $item->id); ?>'>
+            <td>
+               <?php if ($canEdit) : ?>
+                <a  class="btn btn-small btn-info" href='<?php echo JRoute::_('index.php?option=com_hockey&view=report&layout=edit&type=0&id_match=' . $item->id); ?>'>
                     <i class="icon-folder icon-white"></i>&nbsp;&nbsp;<?php echo JText::_('COM_HOCKEY_MATCHES_REC_BODY'); ?> 
                 </a>
+                <?php else : ?>
+                   <?php echo "--"; ?>
+                <?php endif; ?>
             </td>
             <td class="center hidden-phone"><?php echo (int) $item->id; ?></td>
         </tr>

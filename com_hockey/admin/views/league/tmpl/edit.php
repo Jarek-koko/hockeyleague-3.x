@@ -13,8 +13,21 @@ JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('formbehavior.chosen', 'select');
 JHtml::_('behavior.keepalive');
+$document = JFactory::getDocument();
+$document->addScript(JURI::root(true) . "/administrator/components/com_hockey/assets/js/jquery.timePicker.js");
 ?>
 <script type="text/javascript">
+ js = jQuery.noConflict();
+    js(document).ready(function() {
+        js("#jform_time").timePicker({
+            startTime: "07:00",
+            endTime: "23:45", // Using Date object here.
+            show24Hours: true,
+            separator: ':',
+            step: 15
+        });
+ });
+    
 Joomla.submitbutton = function(task)
 {
     if (task == 'league.cancel') {
@@ -100,6 +113,8 @@ Joomla.submitbutton = function(task)
     </div>
     </fieldset>
      <input type="hidden" name="task" value="" />
+     <?php echo $this->form->getInput('id_system',null , HockeyHelper::getSezon()); ?>
+     <?php echo $this->form->getInput('type_of_match',null , 0); ?>
      <?php echo JHtml::_('form.token'); ?>
 </div>
     <!-- End Sidebar --> 
@@ -108,8 +123,6 @@ Joomla.submitbutton = function(task)
     <input type="hidden" name="jform[score_2]" value="<?php echo $this->item->score_2; ?>" />
     <input type="hidden" name="jform[overtime]" value="<?php echo $this->item->overtime; ?>" />
     <input type="hidden" name="jform[shutouts]" value="<?php echo $this->item->shutouts; ?>" />
-    <input type="hidden" name="jform[id_system]" value="<?php echo HockeyHelper::getSezon(); ?>" />
-    <input type="hidden" name="jform[type_of_match]" value="0" />
     <input type="hidden" name="jform[w1p1]" value="<?php echo $this->item->w1p1; ?>" />
     <input type="hidden" name="jform[w2p1]" value="<?php echo $this->item->w2p1; ?>" />
     <input type="hidden" name="jform[w1p2]" value="<?php echo $this->item->w1p2; ?>" />

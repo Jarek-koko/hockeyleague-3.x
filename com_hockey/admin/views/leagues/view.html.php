@@ -17,7 +17,6 @@ class HockeyViewLeagues extends JViewLegacy
     protected $items;
     protected $pagination;
     protected $state;
-    protected $type;
     protected $matchdays;
 
     /**
@@ -59,7 +58,11 @@ class HockeyViewLeagues extends JViewLegacy
         JToolBarHelper::title(JText::_('COM_HOCKEY_TITLE_LEAGUES'), 'logo.png');
 
         if ($canDo->get('core.create')) {
-            JToolBarHelper::addNew('league.add', 'JTOOLBAR_NEW');
+            JToolBarHelper::addNew('league.add', 'COM_HOCKEY_MATCHES_BUTTON_MATCHDAY');
+            $bar = JToolbar::getInstance('toolbar');
+            $title_buton = JText::_('COM_HOCKEY_MATCHES_BUTTON_MATCHDAYS');
+            $code = '<button  class="btn btn-small  btn-primary" onclick="Joomla.submitbutton(\'matchday.add\')" ><i class="icon-list-view" title="' . $title_buton . '"></i> ' . $title_buton . '</button>';
+            $bar->appendButton('Custom', $code, 'newmatchday');
         }
 
         if ($canDo->get('core.edit') && isset($this->items[0])) {

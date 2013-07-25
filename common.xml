@@ -7,7 +7,7 @@
     <property name="verbose" 	value="true" />
     
     <tstamp>
-        <format property="NOW" pattern="hh:mm_dd-MM-yyyy" />
+        <format property="NOW" pattern="hh_mm_dd-MM-yyyy" />
     </tstamp>
     
     <property name="version" value="${NOW}" />

@@ -115,7 +115,7 @@ class HockeyModelTables extends JModelList
         $query->select('t.name AS team');
         $query->join('INNER', '#__hockey_teams AS t ON t.id = a.team_id');
 
-        $query->where('id_system =' . HockeyHelper::getSezon());
+        $query->where('a.id_system =' . HockeyHelper::getSezon());
 
         // Filter by published state
         $published = $this->getState('filter.state');

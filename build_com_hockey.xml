@@ -8,7 +8,7 @@
         <antcall target="_package">
             <param name="NAME" value="com_hockey"/>
         </antcall>
-        <antcall target="_package">
+     <!--   <antcall target="_package">
             <param name="NAME" value="mod_topplayer"/>
         </antcall>
         <antcall target="_package">
@@ -22,7 +22,7 @@
         </antcall>
         <antcall target="_package">
             <param name="NAME" value="mod_scoreboard"/>
-        </antcall>
+        </antcall> -->
     </target>
     
     <target name="build">
