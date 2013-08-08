@@ -64,13 +64,6 @@ Joomla.orderTable = function() {
         <label for="limit" class="element-invisible"><?php echo JText::_('JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC'); ?></label>
         <?php echo $this->pagination->getLimitBox(); ?>
     </div>
-    <div class="btn-group pull-left hidden-phone">
-        <?php
-            for ($i = 65; $i < 91; $i++) {
-                echo '<a class="btn btn-small" href="javascript:searchPlayer(\'' . chr($i) . '\')">' . chr($i) . '</a>';
-            }
-        ?>
-    </div>    
     <div class="btn-group pull-right hidden-phone">
         <label for="directionTable" class="element-invisible"><?php echo JText::_('JFIELD_ORDERING_DESC'); ?></label>
         <select name="directionTable" id="directionTable" class="input-medium" onchange="Joomla.orderTable()">
@@ -88,6 +81,15 @@ Joomla.orderTable = function() {
     </div>
 </div>    
 <div class="clearfix"></div>
+<div class="row-fluid  span12 center">
+    <div class="span12 btn-toolbar hidden-phone">
+    <?php
+       for ($i = 65; $i < 91; $i++) {
+           echo '<a class="btn btn-mini" href="javascript:searchPlayer(\'' . chr($i) . '\')">' . chr($i) . '</a>';
+       }
+    ?>
+    </div>    
+</div>
 <table class="table table-striped" id="playerList">
     <thead>
         <tr>
