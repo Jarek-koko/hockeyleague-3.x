@@ -168,7 +168,6 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match_goalie` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
-
 CREATE TABLE IF NOT EXISTS `#__hockey_match_goals` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_match` int(11) NOT NULL,
@@ -191,7 +190,6 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match_goals` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
-
 CREATE TABLE IF NOT EXISTS `#__hockey_match_penalty` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_match` int(11) NOT NULL,
@@ -207,7 +205,6 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match_penalty` (
   KEY `NewIndex2` (`id_team`),
   CONSTRAINT `FK_#__hockey_match_penalty` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
-
 
 
 CREATE TABLE IF NOT EXISTS `#__hockey_match_players` (

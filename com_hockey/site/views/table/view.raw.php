@@ -17,6 +17,14 @@ class HockeyViewTable extends JViewLegacy
             echo JText::_("COM_HOCKEY_INVALID_TOKEN");
             return false;
         }
+        
+        $app = JFactory::getApplication();
+        $id = (int) $app->input->get('id', 0, 'int');
+
+        if ($id == 0) {
+            echo JText::_("COM_HOCKEY_INVALID_PARAM");
+            return false;
+        }
 
         $this->items = $this->get('Items');
         $this->info = $this->get('Info');

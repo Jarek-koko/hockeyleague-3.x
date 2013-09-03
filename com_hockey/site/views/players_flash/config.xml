@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+    <config>
+        <team></team>
+        <player>Player</player>
+        <name>Name</name>
+        <firstname>First name</firstname>
+        <height>Height</height>
+        <weight>Weight</weight>
+        <date>Date</date>
+        <position>Position</position>
+        <description>Notes</description>
+        <photo>Photo</photo>
+        <bottom_text>Click to select another player</bottom_text>
+        <player_number>Number</player_number>
+    </config>
+</element>

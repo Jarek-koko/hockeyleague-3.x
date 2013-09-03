@@ -53,7 +53,7 @@ class HockeyModelTable extends JModelLegacy
                 try {
                     $db->execute();
                 } catch (RuntimeException $e) {
-                    JError::raiseError(500, $e->getMessage());
+                    throw new Exception($e->getMessage(), 500);
                 }
 
                 $this->_item = $db->loadObjectList();
@@ -91,7 +91,7 @@ class HockeyModelTable extends JModelLegacy
                 try {
                     $db->execute();
                 } catch (RuntimeException $e) {
-                    JError::raiseError(500, $e->getMessage());
+                    throw new Exception($e->getMessage(), 500);
                 }
 
                 $this->_info = $db->loadObject();

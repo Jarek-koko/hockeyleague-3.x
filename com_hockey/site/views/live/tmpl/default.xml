@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <layout title="COM_HOCKEY_LIVE_VIEW_DEFAULT_TITLE">
+        <message>
+                <![CDATA[COM_HOCKEY_LIVE_VIEW_DEFAULT_DESC]]>
+        </message>
+    </layout>
+    <fields name="params">
+        <fieldset name="basic" label="COM_HOCKEY_BASIC_OPTIONS_FIELDSET">
+            <field name="titlehead" type="text" default="Live match" label="COM_HOCKEY_LIVE_TITLE_LABEL" description="COM_HOCKEY_LIVE_TITLE_DESC" size="40" />
+            <field name="id_match" type="text" default="0" label="COM_HOCKEY_LIVE_IDMATCH_LABEL" description="COM_HOCKEY_LIVE_IDMATCH_DESC" />
+            <field name="time" type="text" default="6" label="COM_HOCKEY_LIVE_TIME_LABEL" description="COM_HOCKEY_LIVE_TIME_DESC" />
+            <field name="message1" type="text" default="No match" label="COM_HOCKEY_LIVE_MESSAGE_LABEL" description="COM_HOCKEY_LIVE_MESSAGE_DESC" />
+            <field name="end" type="radio" default="0" label="COM_HOCKEY_LIVE_END_LABEL" description="COM_HOCKEY_LIVE_END_DESC">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>

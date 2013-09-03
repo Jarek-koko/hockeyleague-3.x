@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+    <config>
+        <team>Drużyna</team>
+        <player>Zawodnik</player>
+        <name>Nazwisko</name>
+        <firstname>Imię</firstname>
+        <height>Wzrost</height>
+        <weight>Waga</weight>
+        <date>Data</date>
+        <position>Pozycja</position>
+        <description>Opis</description>
+        <photo>Zdjęcie</photo>
+        <bottom_text>Kliknij żeby wybrać innego zawodnika </bottom_text>
+        <player_number>Numer</player_number>
+    </config>
+</element>

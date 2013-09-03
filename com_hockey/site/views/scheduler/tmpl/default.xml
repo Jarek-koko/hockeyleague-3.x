@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_HOCKEY_SCHEDULER_VIEW_DEFAULT_TITLE" option="View">
+        <message>
+            <![CDATA[COM_HOCKEY_SCHEDULER_VIEW_DEFAULT_DESC]]>
+        </message>
+    </layout>
+    <fields name="params">
+        <fieldset name="basic" label="COM_HOCKEY_BASIC_OPTIONS_FIELDSET"> 
+            <field 
+                name="title_head" 
+                type="text" 
+                default="Standings" 
+                label="COM_HOCKEY_TITLE_PAGE_LABEL" 
+                description="COM_HOCKEY_TITLE_PAGE_DESC" 
+                filter="raw" 
+            />
+              
+            <field name="show_select" type="radio" default="1" 
+                   label="COM_HOCKEY_BASIC_SHOW_SELECT_LABEL" 
+                   description="COM_HOCKEY_BASIC_SHOW_SELECT_DESC"
+            >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
+            <field 
+                name="idseason" 
+                type="sql" 
+                default="1" 
+                label="COM_HOCKEY_SELECT_SEASON_LABEL" 
+                description="COM_HOCKEY_SELECT_SEASON_DESC" 
+                query="SELECT id AS value, name AS idseason FROM #__hockey_system ORDER BY id DESC" 
+            />
+             <field 
+                name="idteamlink" 
+                type="sql" 
+                default="0" 
+                label="COM_HOCKEY_SELECT_TEAM_LABEL" 
+                description="COM_HOCKEY_SELECT_TEAM_DESC" 
+                query="SELECT 0 AS id, '- All Teams -' AS name UNION SELECT id AS value, name  FROM #__hockey_teams WHERE state=1 ORDER BY name"
+                key_field="id" 
+                value_field="name"
+          />
+            <field name="show_time" type="radio" default="1" label="COM_HOCKEY_BASIC_SHOW_TIME_LABEL" description="COM_HOCKEY_BASIC_SHOW_TIME_DESC">
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_HOCKEY_TEAM_VIEW_DEFAULT_TITLE">
+        <message>
+            <![CDATA[COM_HOCKEY_TEAM_VIEW_DEFAULT_DESC]]>
+         </message>
+    </layout>
+    <fields name="params">
+        <fieldset name="basic" label="COM_HOCKEY_BASIC_OPTIONS_FIELDSET">   
+             <field 
+                name="idteam" 
+                type="sql" 
+                default="0" 
+                label="COM_HOCKEY_SELECT_TEAM_LABEL" 
+                description="COM_HOCKEY_SELECT_TEAM_DESC" 
+                query="SELECT id , name FROM #__hockey_teams WHERE state=1 ORDER BY name"
+                key_field="id" 
+                value_field="name"
+          />
+        </fieldset>
+    </fields>
+</metadata>

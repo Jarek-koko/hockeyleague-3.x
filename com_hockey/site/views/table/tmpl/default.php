@@ -9,40 +9,40 @@
 defined('_JEXEC') or die;
 if ($this->id_season != 0):
 ?>
-<div class="component-title"><?php echo $this->title_head ; ?></div>
+<div class="component-title"><?php echo $this->title_head; ?></div>
 <script type="text/javascript">
 //<![CDATA[
-    js = jQuery.noConflict();
-    js(document).ready(function() {
-        
-    <?php if ($this->show_select): ?>
-       js('#form-table').get(0).reset();
-    <?php endif; ?>
-        getData(<?php echo $this->id_season; ?>);   
-  
-        function getData(var_id) {
-            var Url = 'index.php?option=com_hockey&view=table&id='+ var_id + '&<?php echo JSession::getFormToken(); ?>=1&format=raw';
-            js.ajax({
-                url: Url,
-                dataType: 'html',
-                cache: false,
-                beforeSend: function() {
-                    js('#table-standing-content').fadeOut();
-                },
-                success: function (data) { 
-                    js("#table-standing-content").html(data).fadeIn();
-                },
-                error : function () {
-                  
-                }
-            });
-        }
-        
-        js('#sezon_id').change(function() { 
-            var id_sez =  js('#sezon_id option:selected').val();
-            getData(id_sez);   
+js = jQuery.noConflict();
+js(document).ready(function() {
+
+<?php if ($this->show_select): ?>
+   js('#form-table').get(0).reset();
+<?php endif; ?>
+    getData(<?php echo $this->id_season; ?>);   
+
+    function getData(var_id) {
+        var Url = '<?php echo JURI::base(); ?>' + 'index.php?option=com_hockey&view=table&id='+ var_id + '&<?php echo JSession::getFormToken(); ?>=1&format=raw';
+        js.ajax({
+            url: Url,
+            dataType: 'html',
+            cache: false,
+            beforeSend: function() {
+                js('#table-standing-content').fadeOut();
+            },
+            success: function (data) { 
+                js('#table-standing-content').html(data).fadeIn();
+            },
+            error : function () {
+                js("#table-standing-content").html('<div class="alert alert-error"><span><?php echo JText::_('COM_HOCKEY_ERROR_PAGE') ?></span></div>');
+            }
         });
+    }
+
+    js('#sezon_id').change(function() { 
+        var id_sez =  js('#sezon_id option:selected').val();
+        getData(id_sez);   
     });
+});
 //]]>
 </script>
 <?php if ($this->show_select): ?>
@@ -52,12 +52,14 @@ if ($this->id_season != 0):
 </form>
 </div>
 <?php endif; ?>
+<div class="headtab">
+   <div id="title_sez">:: <?php echo JText::_('COM_HOCKEY_STANDINGS'); ?> ::</div>
+</div>
 <div id="table-standing-content">
  <!-- getData ajax -->
 </div>
 <?php else: ?>
 <div class="alert alert-error">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
 <?php echo JText::_('COM_HOCKEY_NO_SEASON'); ?>
 </div>
 <?php endif; ?>

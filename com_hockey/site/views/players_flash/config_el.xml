@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<element>
+    <config>
+        <team>Όνομα ομάδας</team>
+        <player>Παίκτης</player>
+        <name>Όνομα</name>
+        <firstname>Επώνυμο</firstname>
+        <height>Ύψος</height>
+        <weight>Βάρος</weight>
+        <date>Ημερ. Γέννησης</date>
+        <position>Θέση</position>
+        <description>Σχόλια</description>
+        <photo>Φωτογραφία</photo>
+        <bottom_text>Πατήστε για επιλογή άλλου παίκτη</bottom_text>
+        <player_number>Νούμερο Φανέλας</player_number>
+    </config>
+</element>

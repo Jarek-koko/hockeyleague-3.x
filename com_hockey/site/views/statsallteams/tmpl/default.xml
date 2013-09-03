@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_HOCKEY_STATS_ALL_VIEW_DEFAULT_TITLE">
+        <message>
+            <![CDATA[COM_HOCKEY_STATS_ALL_VIEW_DEFAULT_DESC]]>
+        </message>
+    </layout>
+   
+    <fields name="params">
+        <fieldset name="basic" label="COM_HOCKEY_BASIC_OPTIONS_FIELDSET">  
+            <field 
+                name="title_head" 
+                type="text" 
+                default="Statistic all teams" 
+                label="COM_HOCKEY_TITLE_PAGE_LABEL" 
+                description="COM_HOCKEY_TITLE_PAGE_DESC" 
+                filter="raw" 
+            />
+            <field name="show_select" type="radio" default="1" 
+                    label="COM_HOCKEY_BASIC_SHOW_SELECT_LABEL" 
+                    description="COM_HOCKEY_BASIC_SHOW_SELECT_DESC"
+            >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
+            <field 
+                name="idseason" 
+                type="sql" 
+                default="1" translate="true"
+                label="COM_HOCKEY_SELECT_SEASON_LABEL" 
+                description="COM_HOCKEY_SELECT_SEASON_DESC" 
+                query="SELECT id AS value, name AS idseason FROM #__hockey_system order by id desc" 
+            />
+            <field name="limit" type="list"  label="COM_HOCKEY_LIMIT_LABEL" description="COM_HOCKEY_LIMIT_DESC" default="25">
+                <option value="0">COM_HOCKEY_ALL</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>
