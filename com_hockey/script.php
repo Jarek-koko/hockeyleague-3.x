@@ -12,7 +12,6 @@ defined('_JEXEC') or die;
  */
 class com_hockeyInstallerScript
 {
-
     /**
      * method to install the component
      *
@@ -83,12 +82,6 @@ class com_hockeyInstallerScript
             echo '<p><b><span style="color:red;">Note : - </span></b>Directory not created, you must create manually. - /images/hockey </p>';
         }
 
-        if ($direxists[] = JFolder::exists(JPATH_SITE . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'hockey' . DIRECTORY_SEPARATOR . 'numbers')) {
-            echo '<p><b><span style="color:green;">FINISHED : - </span></b> Directory created - /images/hockey/numbers</p>';
-        } else {
-            echo '<p><b><span style="color:red;">Note : - </span></b>Directory not created, you must create manually - /images/hockey/numbers</p>';
-        }
-
         if ($direxists[] = JFolder::exists(JPATH_SITE . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'hockey' . DIRECTORY_SEPARATOR . 'players')) {
             echo '<p><b><span style="color:green;">FINISHED : - </span></b> Directory created - /images/hockey/players</p>';
         } else {
@@ -108,7 +101,6 @@ class com_hockeyInstallerScript
                     <li>/images/hockey</li>
                     <li>/images/hockey/teams</li>
                     <li>/images/hockey/players</li>
-                    <li>/images/hockey/numbers</li>
                 </ul></code>';
         endif;
         echo '</div>';
@@ -116,23 +108,8 @@ class com_hockeyInstallerScript
 
     function image_path()
     {
-
         $mediaXML = new SimpleXMLElement('
 			<media folder="images" destination="../images/hockey">
-			<filename>numbers/00.png</filename>
-			<filename>numbers/0.png</filename>
-			<filename>numbers/01.png</filename>
-			<filename>numbers/02.png</filename>
-			<filename>numbers/03.png</filename>
-			<filename>numbers/04.png</filename>
-			<filename>numbers/05.png</filename>
-			<filename>numbers/06.png</filename>
-			<filename>numbers/07.png</filename>
-			<filename>numbers/08.png</filename>
-			<filename>numbers/09.png</filename>
-			<filename>numbers/sk.png</filename>
-			<filename>numbers/ss.png</filename>
-			<filename>numbers/index.html</filename>
 			<filename>teams/nologo.png</filename>
 			<filename>teams/index.html</filename>
 			<filename>players/nophoto.jpg</filename>
@@ -142,5 +119,4 @@ class com_hockeyInstallerScript
         // $newsXML->asXML();
         return $mediaXML;
     }
-
 }

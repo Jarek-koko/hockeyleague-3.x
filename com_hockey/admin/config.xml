@@ -8,11 +8,6 @@
             description="COM_HOCKEY_GENERAL_DEFAULT_SEASON_DESC" 
             query="SELECT id AS value, name AS iddsfp FROM #__hockey_system ORDER BY ordering DESC"  
         />
-        
-        <field name="gnumber" type="radio" class="btn-group" default="1" label="COM_HOCKEY_NAME_GNUMBER_TITLE" description="COM_HOCKEY_NAME_GNUMBER_DESC">
-            <option value="0">JNO</option>
-            <option value="1">JYES</option>
-        </field>
     </fieldset>
     
     <fieldset name="playoff" label="COM_HOCKEY_NAME_PLAY-OFF">

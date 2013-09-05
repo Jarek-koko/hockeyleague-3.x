@@ -36,14 +36,14 @@ if ($this->id_season != 0):
                 dataType: 'html',
                 cache: false,
                 beforeSend: function() {
-                    js('#scheduler-content').fadeOut();
+                    js('#scheduler-content').html("<div class='loading'><img src='<?php echo JURI::base(true); ?>/media/com_hockey/images/loading.gif' /></div>");
                 },
                 success: function (data) { 
-                    js("#scheduler-content").html(data).fadeIn();
+                    js("#scheduler-content").hide().html(data).fadeIn();
                     localStorage.setItem('sr-content<?php echo $this->menuid; ?>', data);
                 },
                 error : function () {
-                    js("#scheduler-content").html('<div class="alert alert-error"><span><?php echo JText::_('COM_HOCKEY_ERROR_PAGE') ?></span></div>');
+                   js("#scheduler-content").html('<div class="alert alert-error"><span><?php echo JText::_('COM_HOCKEY_ERROR_PAGE') ?></span></div>');
                 }
             });
         }

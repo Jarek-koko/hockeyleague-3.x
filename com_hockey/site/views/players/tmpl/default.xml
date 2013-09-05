@@ -10,12 +10,13 @@
             <field 
                 name="idteam" 
                 type="sql" 
-                default="1" 
+                default="0" 
                 label="COM_HOCKEY_SELECT_TEAM_LABEL" 
                 description="COM_HOCKEY_SELECT_TEAM_DESC" 
-                query="SELECT id AS value, name AS idteam FROM #__hockey_teams WHERE state=1 ORDER BY name"
-                translate="true"
-            />
+                query="SELECT id , name FROM #__hockey_teams WHERE state=1 ORDER BY name"
+                key_field="id" 
+                value_field="name"
+          />
         </fieldset>
     </fields>
 </metadata>

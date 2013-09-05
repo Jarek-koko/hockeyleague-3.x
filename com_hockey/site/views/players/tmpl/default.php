@@ -31,7 +31,7 @@ js(document).ready(function() {
    <div class="headtab">
        <div>:: <?php echo HockeyHelper::getPositionString($row->position); ?> ::</div>
    </div>
-   <table class="tableplayers" id="tableplayers<?php echo $tmp_pos; ?>" border="0" cellpadding="0" cellspacing="1">
+   <table class="tableplayers" id="tableplayers<?php echo $tmp_pos; ?>">
        <thead>
         <tr>
             <th><?php echo JText::_('COM_HOCKEY_PLAYER_NR'); ?></th>
@@ -50,7 +50,7 @@ js(document).ready(function() {
            <td><?php echo ++$pos; ?></td>
            <td><?php echo $nb = ($row->number) ? $row->number : '-'; ?></td>
            <td class="al">
-            <a href="<?php echo JRoute::_('index.php?option=com_hockey&view=player&id='.$row->id); ?>" class="tool_tip"  rel="<?php echo JURI::base(true).$row->photo; ?>">
+            <a href="<?php echo JRoute::_('index.php?option=com_hockey&view=player&id='.$row->id); ?>" class="tool_tip"  rel="<?php echo JURI::base(true).'/'.$row->photo; ?>">
               <span><?php echo $row->first_name . ' ' . $row->name ?></span>
             </a>
            </td>

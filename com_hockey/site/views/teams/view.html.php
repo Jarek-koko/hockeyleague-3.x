@@ -69,6 +69,5 @@ class HockeyViewTeams extends JViewLegacy
             $this->document->setMetadata('robots', $this->params->get('robots'));
         }
     }
-
 }
 ?>

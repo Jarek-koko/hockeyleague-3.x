@@ -14,8 +14,8 @@ $rows = $this->items;
 <div class="row-fluid">
 <div class="span12">
 <?php foreach ($rows as $key => $row) : ?>
-    <div id="idmatchday_<?php echo $row->id_kolejka; ?>" >
-    <?php if ($id_kol != $row->id_kolejka ): ?> 
+    <?php if ($id_kol != $row->id_kolejka ): ?>
+     <div id="idmatchday_<?php echo $row->id_kolejka; ?>" >
         <div class="headtab">
             <div>:: <?php echo  $this->params->get('name'.$row->id_kolejka)?> ::</div>
         </div>
@@ -73,14 +73,13 @@ $rows = $this->items;
     <?php 
         if (isset($rows[$key + 1])) {
             if (($rows[$key + 1]->id_kolejka != $row->id_kolejka)) {
-                echo '</tbody></table>';
+                echo '</tbody></table></div>';
             }
         } else {
-            echo '</tbody></table>';
+            echo '</tbody></table></div>';
         }
         $id_kol = $row->id_kolejka;
      ?>
-  </div>
 <?php endforeach; ?>
 </div>
 </div>

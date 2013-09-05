@@ -11,6 +11,9 @@ defined('_JEXEC') or die;
 // Include dependancies
 jimport('joomla.application.component.controller');
 
+JHtml::_('jquery.framework');
+JHtml::_('bootstrap.framework');
+
 // Execute the task.
 $controller	= JControllerLegacy::getInstance('Hockey');
 $controller->execute(JFactory::getApplication()->input->get('task'));

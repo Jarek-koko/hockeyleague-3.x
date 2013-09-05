@@ -1,8 +1,11 @@
+table td {color: #5f5f5f;}
 .component-title{background-color:#F5F5F5;border:1px solid #E3E3E3;font-size:120%;font-weight:700;text-align:center;margin:0 0 20px;padding:10px}
 .matchbut { color: red  !important;}
+.loading { width: 100% ;text-align: center} 
+.loading img {margin: 50px auto;}
 
 /* tabel standings */
-table.tableleague{border-spacing:1px;border-collapse:separate;background-color:#CDCDCD;font-size:90%;width:100%;text-align:center;margin:10px 0 15px}
+table.tableleague{border-spacing:1px;border-collapse:separate;background-color:#DDD;font-size:90%;width:100%;text-align:center;margin:10px 0 15px}
 table.tableleague thead tr th,table.tableleague tfoot tr th{background-color:#A6DFFC;border:1px solid #FFF;padding:4px}
 table.tableleague thead tr .header{background-image:url(../images/bg.gif);background-repeat:no-repeat;background-position:center right;cursor:pointer}
 table.tableleague tbody td {color:#5f5f5f;background-color:#FFF;vertical-align:top;padding:4px;border:0;}
@@ -21,8 +24,8 @@ table.matchdays-pick a {padding:1px 10px;font-family:Helvetica,Arial; color:#555
 
 /* schedule table  */
 .bb table {margin:20px auto; width:100%;border-collapse: collapse; }
-.bb table th {background: url("../images/htab.png") repeat-x scroll 0 -31px transparent; border: 1px solid #c8c8c8;padding: 4px; text-align:center; }
-.bb table td {padding: 2px; border:1px solid #c8c8c8; text-align:center; color:#5f5f5f;}
+.bb table th {background: url("../images/htab.png") repeat-x scroll 0 -31px transparent; border: 1px solid #DDD;padding: 4px; text-align:center; }
+.bb table td {padding: 2px; border:1px solid #DDD; text-align:center; color:#5f5f5f;}
 .bb table td .smp {margin: 0 0 0 15px; font-size: 0.85em;}
 .headtab {text-align:left; padding:5px 15px;
 background: #ed555f; /* Old browsers */
@@ -49,8 +52,8 @@ background: -ms-linear-gradient(top, #ed555f 0%,#760101 100%); /* IE10+ */
 background: linear-gradient(to bottom, #ed555f 0%,#760101 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed555f', endColorstr='#760101',GradientType=0 ); /* IE6-9 */;
  color:#fff; font-weight:bold;margin-bottom:15px}
-.rp table th{background: url("../images/htab.png") repeat-x scroll 0 -31px transparent; border: 1px solid #c8c8c8;padding: 4px; text-align:center; }
-.rp table td{padding: 2px; border:1px solid #c8c8c8; text-align:left; padding-left: 15px}
+.rp table th{background: url("../images/htab.png") repeat-x scroll 0 -31px transparent; border: 1px solid #DDD;padding: 4px; text-align:center; }
+.rp table td{padding: 2px; border:1px solid #DDD; text-align:left; padding-left: 15px}
 .rp table td .smp {margin: 0 0 0 15px; font-size: 0.85em;}
 .rp table .ck {text-align:left; padding: 5px 15px; background-color:#F5F5F5; font-weight:bold;color:#777; }
 .rp .opis{border:1px solid #8b0000;}
@@ -65,8 +68,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed555f', end
 
 .clr{ content: ".";display: block;height: 0;clear: both;visibility: hidden;}
 
-/* tabela players and statistic */
-table.tableplayers {border-spacing:1px;border-collapse:separate;background-color:#CDCDCD;font-size:90%;width:100%;text-align:center;margin:10px 0 15px}
+/* tabela players and statistic */  
+table.tableplayers {border-spacing:1px;border-collapse:separate;background-color:#DDD;font-size:90%;width:100%;text-align:center;margin:10px 0 15px}
 table.tableplayers thead tr th, table.tableplayers tfoot tr th {background-color: #A6DFFC;border: 1px solid #FFF; padding: 4px; text-align: left;}
 table.tableplayers thead tr .header {background-image: url(../images/bg.gif);background-repeat: no-repeat;background-position: center right;cursor: pointer;}
 table.tableplayers tbody td {color: #5f5f5f;background-color:#FFF;padding: 4px;vertical-align: top; border:0px; }
@@ -75,7 +78,7 @@ table.tableplayers tbody tr.odd td {background-color:#F5F5F5;}
 table.tableplayers thead tr .headerSortUp { background-image: url(../images/asc.gif);}
 table.tableplayers thead tr .headerSortDown { background-image: url(../images/desc.gif);}
 table.tableplayers thead tr .headerSortDown, table.tableplayers thead tr .headerSortUp { background-color: #8dbdd8;}
-table.tableplayers tbody td a {color:#820102;}
+table.tableplayers tbody td a {color:#AC0000;}
 /* tooltip foto players */
 #ptooltip{position:absolute;border:2px solid #000;background:#B30202;display:none;color:#fff;padding:2px}
 
@@ -110,16 +113,23 @@ color:#fff; height:25px; margin-bottom: 5px;
 #players p {padding-bottom: 6px;}
 #players .box-tab-player {min-height: 100px;}
 #players .number-pl,#players .photo-pl  {margin :50px auto; width: 150px; height:180px; 
- background: -moz-linear-gradient(center top , #FFF 0%, #C6C6C7 100%) repeat scroll 0 0 transparent;
- text-align: center;
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #c6c6c7 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#c6c6c7)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%,#c6c6c7 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%,#c6c6c7 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%,#c6c6c7 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ffffff 0%,#c6c6c7 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c6c6c7',GradientType=0 ); /* IE6-9 */
+text-align: center;
 } 
 #players .photo-pl img {margin:5px;}
 #players  #nrp {font-size: 98px; color :#555; font-weight: bold; height: 140px;line-height: 140px;font-family: Georgia, serif }
 
 table.tabplayer {margin:20px auto; width:100%;border-collapse: collapse;}
 table.tabplayer caption {text-align: left; margin-bottom: 5px;  font-weight: bold;}
-table.tabplayer th{background: url("../images/htab.png") repeat-x scroll 0 -31px transparent; border: 1px solid #c8c8c8;padding: 4px; text-align:center; }
-table.tabplayer td{padding: 2px; border:1px solid #c8c8c8; text-align:left; padding-left: 15px}
+table.tabplayer th{background: url("../images/htab.png") repeat-x scroll 0 -31px transparent; border: 1px solid #DDD;padding: 4px; text-align:center; }
+table.tabplayer td{padding: 2px; border:1px solid #DDD; text-align:left; padding-left: 15px}
 div.leg_p { display:block;}
 
 /*team list */
@@ -267,8 +277,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 #board .logo-b { text-align: center; margin: 20px;}
-#board .logo-b img {border: 1px solid #DDD; padding: 5px ;  margin:5px; 
-            background: -moz-linear-gradient(center top , #FFF 0%, #C6C6C7 100%) repeat scroll 0 0 transparent;
+#board .logo-b img {
+border: 1px solid #DDD; padding: 5px ;  margin:5px; 
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #c6c6c7 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#c6c6c7)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%,#c6c6c7 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%,#c6c6c7 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%,#c6c6c7 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ffffff 0%,#c6c6c7 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c6c6c7',GradientType=0 ); /* IE6-9 */
 }
 
 #sc_more_info {

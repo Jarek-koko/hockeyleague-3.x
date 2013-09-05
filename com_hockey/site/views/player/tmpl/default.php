@@ -19,7 +19,7 @@ function birthday($dage) {
     <div class="row-fluid info-player">
         <div class="span4">
             <div class="photo-pl"> 
-               <img src="<?php echo  JURI::base(true) . $this->player->photo; ?>" alt="<?php echo $this->player->name ?>" class="imgp" />
+               <img src="<?php echo  JURI::base(true) .'/'. $this->player->photo; ?>" alt="<?php echo $this->player->name ?>" class="imgp" />
             </div>
         </div>
         <div class="span4">

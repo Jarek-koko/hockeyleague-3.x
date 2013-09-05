@@ -36,10 +36,10 @@ if ($this->id_season != 0):
                 dataType: 'html',
                 cache: false,
                 beforeSend: function() {
-                    js('#scheduleo-content').fadeOut();
+                    js('#scheduleo-content').html("<div class='loading'><img src='<?php echo JURI::base(true); ?>/media/com_hockey/images/loading.gif' /></div>");
                 },
                 success: function (data) { 
-                    js("#scheduleo-content").html(data).fadeIn();
+                    js("#scheduleo-content").hide().html(data).fadeIn();
                     localStorage.setItem('so-content<?php echo $this->menuid; ?>', data);
                 },
                 error : function () {

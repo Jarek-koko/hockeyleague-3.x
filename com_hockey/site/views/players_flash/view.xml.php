@@ -31,7 +31,7 @@ class HockeyViewPlayers_flash extends JViewLegacy
                 echo "\t\t\t" . '<date>' . JHTML::_('date', $row->date_of_birth, JText::_('DATE_FORMAT_LC4')) . '</date>' . "\n";
                 echo "\t\t\t" . '<position>' . HockeyHelper::getPositionString((int) $row->position) . '</position>' . "\n";
                 echo "\t\t\t" . '<description><![CDATA[ ' . $row->description . '   ]]> </description>' . "\n";
-                echo "\t\t\t" . '<photo>' . $row->photo . '</photo>' . "\n";
+                echo "\t\t\t" . '<photo>/' . $row->photo . '</photo>' . "\n";
                 echo "\t\t\t" . '<number>' . $row->number . '</number>' . "\n";
                 echo "\t\t" . '</player>' . "\n";
             }

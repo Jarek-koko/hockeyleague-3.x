@@ -54,13 +54,9 @@
         <mkdir dir="${builddir}/${NAME}/media"/>
         <mkdir dir="${builddir}/${NAME}/admin/sql"/>
         <mkdir dir="${builddir}/${NAME}/images"/>
-        <mkdir dir="${builddir}/${NAME}/images/numbers"/>
         <mkdir dir="${builddir}/${NAME}/images/teams"/>
         <mkdir dir="${builddir}/${NAME}/images/players"/>
         
-        <copy todir="${builddir}/${NAME}/images/numbers" overwrite="true" verbose="${verbose}" failonerror="false">
-            <fileset dir="${source}/images/hockey/numbers"/>
-        </copy>
         
         <copy todir="${builddir}/${NAME}/images/teams" overwrite="true" verbose="${verbose}" failonerror="false">
             <filelist dir="${source}/images/hockey/teams" files="nologo.png" />

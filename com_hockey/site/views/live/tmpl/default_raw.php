@@ -82,11 +82,11 @@ defined('_JEXEC') or die;
     </div> <!-- #sc_r -->
   <?php if ($this->end == 1): ?>
     <div id="sc_more_info">
-        <span>End of match</span>
+        <span><?php echo JText::_('COM_HOCKEY_END_OF_MATCH') ?></span>
     </div>
    <?php else: ?>
     <div id="sc_more_info">
-        <span>Live</span>
+        <span><?php echo JText::_('COM_HOCKEY_LIVE') ?></span>
     </div>
     <?php endif; ?>
     <div class="clr">.</div>

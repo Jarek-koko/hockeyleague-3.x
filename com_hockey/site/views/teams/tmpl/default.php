@@ -27,10 +27,10 @@ js(document).ready(function() {
             dataType: 'html',
             cache: false,
             beforeSend: function() {
-                js('#table-standing-content').fadeOut();
+                 js('#table-standing-content').html("<div class='loading'><img src='<?php echo JURI::base(true); ?>/media/com_hockey/images/loading.gif' /></div>");
             },
             success: function (data) { 
-                js('#table-standing-content').html(data).fadeIn();
+                 js('#table-standing-content').hide().html(data).fadeIn();        
             },
             error : function () {
                 js("#table-standing-content").html('<div class="alert alert-error"><span><?php echo JText::_('COM_HOCKEY_ERROR_PAGE') ?></span></div>');

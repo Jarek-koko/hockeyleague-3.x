@@ -15,13 +15,12 @@ jimport('joomla.application.component.controller');
 class HockeyController extends JControllerLegacy
 {
 
-     
     public function display($cachable = false, $urlparams = false)
 	{
 		// Set the default view name and format from the Request.
 		$vName = $this->input->get('view', 'table');
 		$this->input->set('view', $vName);
-        
+       
         $document = JFactory::getDocument();
         $document->addStyleSheet(JURI::base(true) . '/media/com_hockey/css/style.css');
 

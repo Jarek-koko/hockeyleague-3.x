@@ -16,8 +16,12 @@ class HockeyViewPlayers_flash extends JViewLegacy
     function display($tpl = null)
     {
         $this->params = JFactory::getApplication()->getParams();
-        $this->title_head = $this->params->get('title_head', JText::_('COM_HOCKEY_PLAYERS_TITLE'));
+        $this->title_head = $this->params->get('title_head', JText::_('COM_HOCKEY_PLAYERS_TITLE_HEAD'));
 
+        JHtml::_('jquery.framework',  true, true);
+        $document = JFactory::getDocument();
+        $document->addScript(JURI::base(true) . '/media/com_hockey/js/swfobject.js');
+        
         $this->idteam = $this->params->get('idteam');
         $this->title_head = $this->title_head;
 
@@ -34,7 +38,7 @@ class HockeyViewPlayers_flash extends JViewLegacy
         if ($menu) {
             $this->params->def('page_heading', $this->params->get('page_title', $menu->title));
         } else {
-            $this->params->def('page_heading', JText::_('COM_HOCKEY_PLAYERS_TITLE'));
+            $this->params->def('page_heading', JText::_('COM_HOCKEY_PLAYERS_TITLE_HEAD'));
         }
 
         $title = $this->params->get('page_title', $this->title_head);

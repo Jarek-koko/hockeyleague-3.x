@@ -15,6 +15,8 @@ if ($this->id_season != 0):
 js = jQuery.noConflict();
 js(document).ready(function() {
    js('#form-type-sez').get(0).reset();
+   
+   getData(js('#sezon_id option:selected').val(),js('#tom_id option:selected').val()); 
 
     function getData(var_id, id_type) {
         var Url = '<?php echo JURI::base(); ?>' + 'index.php?option=com_hockey&view=schedule&id='+ var_id + '&<?php echo JSession::getFormToken(); ?>=1&menu_id=<?php echo $this->menuid; ?>&type_id='+ id_type +'&format=raw';
@@ -23,10 +25,10 @@ js(document).ready(function() {
             dataType: 'html',
             cache: false,
             beforeSend: function() {
-                js('#schedule-content').fadeOut();
+                js('#schedule-content').html("<div class='loading'><img src='<?php echo JURI::base(true); ?>/media/com_hockey/images/loading.gif' /></div>");
             },
             success: function (data) { 
-                js("#schedule-content").html(data).fadeIn();
+                js("#schedule-content").hide().html(data).fadeIn();
             },
             error : function () {
                 js("#schedule-content").html('<div class="alert alert-error"><span><?php echo JText::_('COM_HOCKEY_ERROR_PAGE') ?></span></div>');
@@ -48,7 +50,7 @@ js(document).ready(function() {
 <div class="form-horizontal span12 well">
 <?php echo $this->items; ?>
 <?php echo $this->stom; ?>
-<button type="submit" class="btn btn-info" value="val"><?php echo JText::_('COM_HOCKEY_GO'); ?></button>
+<button type="submit" class="btn btn-info btn-small" value="val"><?php echo JText::_('COM_HOCKEY_GO'); ?></button>
 </div>     
 </form>
 </div>

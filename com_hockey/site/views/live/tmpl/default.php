@@ -20,7 +20,7 @@ js(document).ready(function()
             dataType: 'html',
             cache: false,
             beforeSend: function() {
-                js('#live').html("<img src='<?php echo JURI::base(true); ?>/media/com_hockey/images/loading.gif' />");
+                js('#live').html("<div class='loading'><img src='<?php echo JURI::base(true); ?>/media/com_hockey/images/loading.gif' /></div>");
             },
             success: function(data) {
                 js("#live").html(data);

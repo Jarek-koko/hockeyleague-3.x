@@ -20,7 +20,7 @@ jQuery(document).ready(function()
     <div><?php echo $this->title; ?></div>
 </div>
 <?php if (($this->id == 4) || ($this->id == 3)) : ?>
-<table  class="tableplayers" id="tableplayers<?php echo $this->id ?>" border="0" cellpadding="0" cellspacing="1">
+<table  class="tableplayers" id="tableplayers<?php echo $this->id ?>">
     <thead>
         <tr><th>*</th>
             <th><?php echo JText::_('COM_HOCKEY_STATS_POS') ?></th>
@@ -59,7 +59,7 @@ jQuery(document).ready(function()
     </tbody></table>
 <div class="leg_p"><?php echo JText::_('COM_HOCKEY_STATS_INFO_G') ?><br /><?php echo JText::_('COM_HOCKEY_STATS_INFO') ?></div>
 <?php else : ?>
-<table  class="tableplayers" id="tableplayers<?php echo $this->id ?>" border="0" cellpadding="0" cellspacing="1">
+<table  class="tableplayers" id="tableplayers<?php echo $this->id ?>">
     <thead>
         <tr><th>*</th>
             <th><?php echo JText::_('COM_HOCKEY_STATS_POS') ?></th>
