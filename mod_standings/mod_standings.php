@@ -1,7 +1,7 @@
 <?php
 /**
  * @version     1.0.0
- * @package     com_hockey
+ * @package     mod_standings
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      Klich Jarosław
@@ -26,6 +26,7 @@ $class2 = $params->get('class2', 'tab21');
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
+JHtml::_('jquery.framework');
 $document = JFactory::getDocument();
 $document->addStyleSheet(JURI::base(true) . '/media/com_hockey/css/style.css');
 

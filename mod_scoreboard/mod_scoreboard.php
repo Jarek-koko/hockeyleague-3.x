@@ -1,12 +1,13 @@
 <?php
 /**
  * @version     1.0.0
- * @package     com_hockey
+ * @package     mod_scoreboard
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      Klich Jarosław
  */
 defined('_JEXEC') or die;
+
 // Include the syndicate functions only once
 require_once __DIR__ . '/helper.php';
 
@@ -49,6 +50,11 @@ $tday =     $params->get('t_day', 'Days');
 $thour =    $params->get('t_hour', 'Hours');
 $tminute =  $params->get('t_minute', 'Minutes');
 $tsecond =  $params->get('t_second', 'Seconds');
+
+
+JHtml::_('jquery.framework');
+$document = JFactory::getDocument();
+$document->addStyleSheet(JURI::base(true) . '/media/com_hockey/css/style.css');
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 

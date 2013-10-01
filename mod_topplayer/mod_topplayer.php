@@ -1,7 +1,7 @@
 <?php
 /**
  * @version     1.0.0
- * @package     com_hockey
+ * @package     mod_topplayer
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      Klich Jarosław
@@ -16,7 +16,9 @@ $title3 = ( $params->get('title3', 'A') );
 $type = intval($params->get('type_of_match', 0));
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
-JHtml::_('jquery.framework',  true, true);
+JHtml::_('jquery.framework');
+$document = JFactory::getDocument();
+$document->addStyleSheet(JURI::base(true) . '/media/com_hockey/css/style.css');
 
 require JModuleHelper::getLayoutPath('mod_topplayer', $params->get('layout', 'default'));
 

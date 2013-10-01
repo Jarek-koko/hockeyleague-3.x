@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="1.7.0" client="site" method="upgrade">
+<extension type="module" version="3.1" client="site" method="upgrade">
     <name>Calendar Matches</name>
     <author>Klich Jarosław</author>
     <creationDate>August 2013</creationDate>
     <copyright>Klich Jarosław</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-    <authorEmail>Jarek.koko+HockeyTeam@gmail.com</authorEmail>
+    <authorEmail>Jarek.koko+HockeyLeague@gmail.com</authorEmail>
     <authorUrl></authorUrl>
     <version>1.0.1</version>
     <description>MOD_CAL_XML_DESCRIPTION</description>

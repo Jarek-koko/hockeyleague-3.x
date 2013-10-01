@@ -1,7 +1,7 @@
 <?php
 /**
  * @version     1.0.0
- * @package     com_hockey
+ * @package     mod_calendar
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      Klich Jarosław
@@ -71,7 +71,10 @@ list($month, $post_year, $weekday) = explode(',', gmstrftime('%m,%Y,%w', $first_
 $weekday = ($weekday + 6 ) % 7;
 
 $title = JString::strtoupper(date('F', mktime(0, 0, 0, $month + 1, 0, 0)));
-
 $days = modcalendarHelper::getmatchdays($post_month, $post_year, $params);
+
+JHtml::_('jquery.framework');
+$document = JFactory::getDocument();
+$document->addStyleSheet(JURI::base(true) . '/media/com_hockey/css/style.css');
 
 require JModuleHelper::getLayoutPath('mod_calendar', $params->get('layout', 'default'));

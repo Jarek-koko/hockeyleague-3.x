@@ -1,7 +1,7 @@
 <?php
 /**
  * @version     1.0.0
- * @package     com_hockey
+ * @package     mod_scoreboard
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      Klich Jarosław
@@ -153,7 +153,9 @@ function update<?php echo $module->id; ?>()
     <div class="sc_more_info">
            <?php if ($popup == 1) : ?>
               <?php JHTML::_('behavior.modal'); ?>
-                 <a class="modal" href="<?php echo $link ?>" rel="{handler:'iframe', size: {x:'<?php echo $width; ?>', y:'<?php echo $height; ?>'}}"><span class="link_rel"><?php echo $title; ?></span></a>
+                 <a class="modal" href="<?php echo $link ?>" rel="{handler:'iframe', size: {x:'<?php echo $width; ?>', y:'<?php echo $height; ?>'}}">
+                     <span class="link_rel"><?php echo $title; ?></span>
+                 </a>
              <?php else: ?>
                  <a class="modal" href="<?php echo $link ?>"><span class="link_rel"><?php echo $title; ?></span></a>
            <?php endif; ?>
