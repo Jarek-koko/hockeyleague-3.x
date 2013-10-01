@@ -18,8 +18,8 @@ defined('_JEXEC') or die;
 </div>
 <div id="scoreboard1">
 <!-- wynik meczu -->
-<div id="board">
-    <div id="sc_l">
+<div class="board">
+    <div class="sc_l">
         <p class="game_info"><?php echo JHTML::_('date', $this->list['data'], JText::_('DATE_FORMAT_LC3')); ?></p>
         <p class="game_team"><span><?php echo $this->list['home']; ?></span></p>
          <div class="logo-b">
@@ -30,8 +30,8 @@ defined('_JEXEC') or die;
             } ?>
          </div>
     </div> <!-- #sc_l -->
-    <div id="sc_m">
-        <div id="sc_m_penalty">
+    <div class="sc_m">
+        <div class="sc_m_penalty">
            <?php if ($this->list['w1so'] != null || $this->list['w2so'] != null): ?>
             <span><?php echo JText::_('COM_HOCKEY_SHOUTOUTS') ;?></span>
             <?php elseif ($this->list['w1ot'] != null || $this->list['w2ot'] != null): ?>
@@ -39,11 +39,11 @@ defined('_JEXEC') or die;
             <?php endif; ?>
         </div>
         <div class="game_score">
-            <span id="sc_m_l_score"><?php echo $this->list['score_1']; ?></span>
-            <span id="sc_m_m_score">:</span>
-            <span id="sc_m_r_score"><?php echo $this->list['score_2']; ?></span>
+            <span class="sc_m_l_score"><?php echo (!empty($list['score_1']) ) ? $list['score_1'] : '-'; ?></span>
+            <span class="sc_m_m_score">:</span>
+            <span class="sc_m_r_score"><?php echo (!empty($list['score_2']) ) ? $list['score_2'] : '-'; ?></span>
         </div> <!-- .game_score -->
-        <ul id="game_score_sub">
+        <ul class="game_score_sub">
             <?php if ($this->list['w1p1'] != null): ?>
                 <li>
                     <span><?php echo JText::_('COM_HOCKEY_1P') ?></span>
@@ -77,7 +77,7 @@ defined('_JEXEC') or die;
             <?php endif; ?>
         </ul> <!-- #game_score_sub -->
     </div> <!-- #sc_m -->
-    <div id="sc_r">
+    <div class="sc_r">
         <p class="game_info"><span><?php echo $this->list['place']; ?></span></p>
         <p class="game_team"><span><?php echo $this->list['visitor'] ?></span></p>
         <div class="logo-b">

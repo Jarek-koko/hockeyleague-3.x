@@ -3,12 +3,12 @@
     <import file="common.xml"/>
     <target name="all" depends="build,sync,package"/>
     <target name="all-no-pack" depends="build,sync"/>
-    
+
     <target name="package">
         <antcall target="_package">
             <param name="NAME" value="com_hockey"/>
         </antcall>
-     <!--   <antcall target="_package">
+        <antcall target="_package">
             <param name="NAME" value="mod_topplayer"/>
         </antcall>
         <antcall target="_package">
@@ -22,9 +22,9 @@
         </antcall>
         <antcall target="_package">
             <param name="NAME" value="mod_scoreboard"/>
-        </antcall> -->
+        </antcall>
     </target>
-    
+
     <target name="build">
         <antcall target="buildcomponent">
             <param name="NAME" value="com_hockey"/>
@@ -51,12 +51,12 @@
             <param name="PREFIX" value=""/>
         </antcall>
     </target>
-    
+
     <target name="sync">
         <antcall target="_sync">
             <param name="NAME" value="com_hockey"/>
         </antcall>
-         <antcall target="_sync">
+        <antcall target="_sync">
             <param name="NAME" value="mod_topplayer"/>
         </antcall>
         <antcall target="_sync">
@@ -72,5 +72,5 @@
             <param name="NAME" value="mod_scoreboard"/>
         </antcall>
     </target>
-    
+
 </project>

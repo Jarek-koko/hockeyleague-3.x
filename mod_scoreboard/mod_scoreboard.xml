@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.7.0" client="site" method="upgrade">
+    <name>Scoreboard</name>
+    <author>Klich Jarosław</author>
+    <creationDate>August 2013</creationDate>
+    <copyright>Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>Jarek.koko+HockeyLeague@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <version>1.0.1</version>
+    <description>MOD_SCOREBOARD_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_scoreboard">mod_scoreboard.php</filename>
+        <folder>tmpl</folder>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>mod_scoreboard.xml</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">en-GB.mod_scoreboard.ini</language>
+        <language tag="en-GB">en-GB.mod_scoreboard.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field 
+                    name="id" 
+                    type="text" 
+                    default="1" 
+                    label="MOD_SCOREBOARD_FIELD_ID_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_ID_DESC" 
+                />
+                <field 
+                    name="info" 
+                    type="text" 
+                    default="" 
+                    label="MOD_SCOREBOARD_FIELD_INFO_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_INFO_DESC" 
+                />
+                <field type="spacer" name="spacer1" hr="true" />
+                <field 
+                    name="show_button" 
+                    type="list" 
+                    default="1" 
+                    label="MOD_SCOREBOARD_FIELD_BUTTON_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_BUTTON_DESC">
+                    <option value="0">MOD_SCOREBOARD_NO</option>
+                    <option value="1">MOD_SCOREBOARD_YES</option>
+                </field>
+                <field 
+                    name="popup" 
+                    type="list" 
+                    default="1" 
+                    label="MOD_SCOREBOARD_FIELD_POPUP_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_POPUP_DESC">
+                    <option value="0">MOD_SCOREBOARD_NO</option>
+                    <option value="1">MOD_SCOREBOARD_YES</option>
+                </field>
+                <field 
+                    name="title" 
+                    type="text" 
+                    default="Report" 
+                    label="MOD_SCOREBOARD_FIELD_TITLE_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_TITLE_DESC" 
+                />
+                <field 
+                    name="width" 
+                    type="text" 
+                    default="800" 
+                    label="MOD_SCOREBOARD_FIELD_WIDTH_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_WIDTH_DESC" 
+                />
+                <field 
+                    name="height" 
+                    type="text" 
+                    default="600" 
+                    label="MOD_SCOREBOARD_FIELD_HEIGHT_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_HEIGHT_DESC" 
+                />
+                <field type="spacer" name="spacer2" hr="true" />
+                <field 
+                    name="show_countdown" 
+                    type="list" 
+                    default="1" 
+                    label="MOD_SCOREBOARD_FIELD_COU_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_COU_DESC">
+                    <option value="0">MOD_SCOREBOARD_NO</option>
+                    <option value="1">MOD_SCOREBOARD_YES</option>
+                </field>
+                <field 
+                    name="get_gt" 
+                    type="radio" 
+                    default="0" 
+                    label="MOD_SCOREBOARD_FIELD_GETGT_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_GETGT_DESC">
+                    <option value="0">MOD_SCOREBOARD_NO</option>
+                    <option value="1">MOD_SCOREBOARD_YES</option>
+                </field>
+                <field 
+                    name="day" 
+                    type="text" 
+                    default="01" 
+                    label="MOD_SCOREBOARD_FIELD_DAY_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_DAY_DESC"
+                />
+                <field 
+                    name="month" 
+                    type="text" 
+                    default="01" 
+                    label="MOD_SCOREBOARD_FIELD_MONTH_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_MONTH_DESC"
+                />
+                <field 
+                    name="year" 
+                    type="text" 
+                    default="2011" 
+                    label="MOD_SCOREBOARD_FIELD_YEAR_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_YEAR_DESC"
+                />
+                <field 
+                    name="hour" 
+                    type="text" 
+                    default="01" 
+                    label="MOD_SCOREBOARD_FIELD_HOUR_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_HOUR_DESC"
+                />
+                <field 
+                    name="minute" 
+                    type="text" 
+                    default="01" 
+                    label="MOD_SCOREBOARD_FIELD_MINUTE_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_MINUTE_DESC"
+                />
+                <field 
+                    name="second" 
+                    type="text" 
+                    default="01" 
+                    label="MOD_SCOREBOARD_FIELD_SECOND_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_SECOND_DESC"
+                />
+                <field type="spacer" name="spacer3" hr="true" />
+                <field 
+                    name="m_start" 
+                    type="text" 
+                    default="Match is underway" 
+                    label="MOD_SCOREBOARD_FIELD_START_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_START_DESC"
+                />
+                <field 
+                    name="t_day" 
+                    type="text" 
+                    default="Days" 
+                    label="MOD_SCOREBOARD_FIELD_LDAY_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_LDAY_DESC"
+                />
+                <field 
+                    name="t_hour" 
+                    type="text" 
+                    default="Hours" 
+                    label="MOD_SCOREBOARD_FIELD_LHOUR_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_LHOUR_DESC"
+                />
+                <field 
+                    name="t_minute" 
+                    type="text" 
+                    default="Minutes" 
+                    label="MOD_SCOREBOARD_FIELD_LMINUTE_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_LMINUTE_DESC"
+                />
+                <field 
+                    name="t_second" 
+                    type="text" 
+                    default="Seconds" 
+                    label="MOD_SCOREBOARD_FIELD_LSECOND_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_LSECOND_DESC"
+                />
+            </fieldset>
+            <fieldset name="advanced">
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+                 />
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

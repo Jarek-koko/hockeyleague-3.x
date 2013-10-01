@@ -4,7 +4,18 @@ table td {color: #5f5f5f;}
 .loading { width: 100% ;text-align: center} 
 .loading img {margin: 50px auto;}
 
-/* tabel standings */
+/* mod_top */
+#topplayers > div{ padding :0}
+#topplayers table.ttop{ margin:0; padding:0; color:#717070; width:100%;margin:4px 0; border-collapse:collapse;}
+#topplayers table.ttop th ,#topplayers table caption {color:#555;}
+#topplayers table.ttop td{padding:3px 10px; border-bottom:1px dotted #CBCBCB;}
+#topplayers table.ttop td:first-child{ background-color: #8B0000; color:#fff}
+#topplayers td.ttop1{width:80%;text-align:left;}
+#topplayers td.ttop1 a {color:#717070}
+#topplayers td.ttop1 a:hover{color:#EF0000;}
+
+
+/* mod standings */
 table.tableleague{border-spacing:1px;border-collapse:separate;background-color:#DDD;font-size:90%;width:100%;text-align:center;margin:10px 0 15px}
 table.tableleague thead tr th,table.tableleague tfoot tr th{background-color:#A6DFFC;border:1px solid #FFF;padding:4px}
 table.tableleague thead tr .header{background-image:url(../images/bg.gif);background-repeat:no-repeat;background-position:center right;cursor:pointer}
@@ -136,29 +147,30 @@ div.leg_p { display:block;}
 #teams-list  .thumbnail {padding: 35px 0}
 .team-list {margin: 10px 0}
 
+
 /* scoreboard in report  */
-#board {
+.board {
     background: none repeat scroll 0 0 #303741;
     clear: both;
     margin-top: 8px;
-    padding: 5px;
+    padding: 0 5px ;
     margin-bottom: 30px;
 }
-#board p {margin:0 ;padding:0;}
-#board #sc_l, #board #sc_r {
+.board p {margin:0 ;padding:0;}
+.board .sc_l, .board .sc_r {
     float: left;
     width: 40%;
 }
-#board #sc_m {
+.board .sc_m {
     float: left;
     width: 20%;
 }
-#board .game_info {
+.board .game_info {
     color: #FFF;
     font-size: 11px;
     height: 24px;
 }
-#board .game_team {
+.board .game_team {
  background: #c6c6c7; /* Old browsers */
 background: -moz-linear-gradient(top, #ffffff 0%, #c6c6c7 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#c6c6c7)); /* Chrome,Safari4+ */
@@ -176,7 +188,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     padding: 0;
     text-align: center;
 }
-#board .game_team span {
+.board .game_team span {
     color: #0088CC;
     display: inline-block;
     line-height: normal;
@@ -184,13 +196,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     max-width: 170px;
     vertical-align: middle;
 }
-#board .game_team span:first-child {
+.board .game_team span:first-child {
     margin-left: 5px;
 }
-#board .game_team a:hover {
+.board .game_team a:hover {
     background: none repeat scroll 0 center transparent;
 }
-#board .game_team img {
+.board .game_team img {
     border: 1px solid #C6C6C6;
     max-width: 45px;
     position: relative;
@@ -198,10 +210,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     vertical-align: middle;
 }
 
-#board #sc_m {
+.board .sc_m {
     padding-top: 7px;
 }
-#board #sc_m_penalty {
+.board .sc_m_penalty {
     background: none repeat scroll 0 0 #DDD;
     color: #CE212D;
     font-weight: bold;
@@ -209,7 +221,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     text-align: center;
     visibility: hidden;
 }
-#board #sc_m .game_score {
+.board .sc_m .game_score {
     background: #ed555f; /* Old browsers */
     background: -moz-linear-gradient(top, #ed555f 0%, #760101 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ed555f), color-stop(100%,#760101)); /* Chrome,Safari4+ */
@@ -225,40 +237,40 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     height: 41px;
     line-height: 41px;
 }
-#board #sc_m .game_score a {
+.board .sc_m .game_score a {
     background: none repeat scroll 0 center transparent;
     color: #FFFFFF;
 }
-#board #sc_m_l_score {
+.board .sc_m_l_score {
     float: left;
     text-align: right;
     width: 40%;
 }
-#board #sc_m_r_score {
+.board .sc_m_r_score {
     float: right;
     width: 40%;
 }
-#board #sc_m_m_score {
+.board .sc_m_m_score {
     float: left;
     text-align: center;
     width: 20%;
 }
 
-#board #sc_m #game_score_sub {
+.board .sc_m .game_score_sub {
     color: #F3F2F2;
     font-weight: bold;
     height: 150px;
     background-color: #DDD;
 }
-#board #sc_m  ul { margin:0px;}
-#board #sc_m #game_score_sub li {
+.board .sc_m  ul { margin:0px;}
+.board .sc_m .game_score_sub li {
     border-bottom: 1px solid #AAA;
     height: 25px;
     line-height: 24px;
     list-style: none outside none;
 }
 
-#board #sc_m #game_score_sub li span{
+.board .sc_m .game_score_sub li span{
     color: #222;
     display: block;
     float: left;
@@ -267,17 +279,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     width: 33%;
 }
 
-#board #sc_info_r {
+.board .sc_info_r {
     margin-left: 12px;
     overflow: hidden;
     text-align: right;
 }
-#board #sc_info_r span {
+.board .sc_info_r span {
     white-space: pre;
 }
 
-#board .logo-b { text-align: center; margin: 20px;}
-#board .logo-b img {
+.board .logo-b { text-align: center; margin: 20px;}
+.board .logo-b img {
 border: 1px solid #DDD; padding: 5px ;  margin:5px; 
 background: #ffffff; /* Old browsers */
 background: -moz-linear-gradient(top, #ffffff 0%, #c6c6c7 100%); /* FF3.6+ */
@@ -289,22 +301,110 @@ background: linear-gradient(to bottom, #ffffff 0%,#c6c6c7 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c6c6c7',GradientType=0 ); /* IE6-9 */
 }
 
-#sc_more_info {
+.sc_more_info {
     display: block;
     background: none repeat scroll 0 0 #FFFFFF;
     clear: both;
     font-size: 11px;
     line-height: 22px;
     margin: 0 -5px;
-    position: relative;
     text-align: center;
-    top: 5px;
 }
 
-#sc_more_info span { 
+.sc_more_info span { 
     background: url('../images/dot.gif') no-repeat 10% center #303741;
     border-radius: 0 0 3px 3px;
     color: #FFFFFF;
     display: inline-block;
     width: 140px;
 }
+
+
+/* module style */
+#aside .well {padding: 2px}
+
+/* mod_matchday  and standing ==========================*/
+table.tabb {width:100%; border-collapse: separate; border-spacing: 1px; font-size: 95%}
+table.tabb thead th {}
+table.tabb th {text-align:center; color:#FFF;}
+table.tabb td {text-align:center; color:#717070; border-bottom:1px solid #ddd;border-left:1px solid #ddd}
+table.tabb tr{background-color:#f1f1f1;}
+table.tabb .tab21 td{background-color:#4B3A2A;}
+table.tabb td:first-child + td {text-align: left; padding: 0 0 0 2px}
+table.tabb th, table.mday th {
+background: #ed555f; /* Old browsers */
+background: -moz-linear-gradient(top, #ed555f 0%, #760101 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ed555f), color-stop(100%,#760101)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ed555f 0%,#760101 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ed555f 0%,#760101 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ed555f 0%,#760101 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ed555f 0%,#760101 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed555f', endColorstr='#760101',GradientType=0 ); /* IE6-9 */
+}
+
+table.mday {margin:2px auto; width:100%;border-collapse: separate;border-spacing: 1px;background-color: #FFF; font-size: 95%}
+table.mday thead border{}
+table.mday {background-color: #ddd}
+table.mday th { color:#FFF;}
+table.mday td{padding:2px 0 2px 3px;  color:#717070;}
+table.mday td:first-child + td {text-align: center; padding: 0;}
+table.mday .row1 {background-color:#F1F1F1}
+table.mday .row2 {background-color:#FFF}
+table.mday tr td:nth-child(1) { width: 40%; }
+table.mday tr td:nth-child(2){ width: 15%; }
+table.mday tr td:nth-child(3) { width: 40%; }
+
+#matchdayNav #dayNav {text-align: center; margin: 5px 0; width: 100%; background-color: #303741; padding:5px 0; color:#FFF}
+#matchdayNav #dayNav .actual {text-align: center; margin:0 15px;}
+
+/*  mod_calendare  */
+.calq table{width:100%; padding:0; margin:5px 0; text-align:center; background-color:#fff; border-collapse:separate;border-spacing: 1px}
+.calq table th{color:#FFF; background-color:#8B0000;text-align: center;}
+.calq td{ border:1px solid #C8C8C8; background-color:#F5F5F5;padding: 3px}
+.calq td.empty{background-color:#FFF}
+.calq td#today{border:1px solid red;}
+.calq td.matchday span {display:block;color:#FFF; cursor:pointer;}
+
+ #qnav {text-align: center; margin: 5px 0; width: 100%; background-color: #303741; padding:5px 0; color:#FFF}
+ #qnav .actual {text-align: center; margin:0 15px;}
+
+.calq .qhome{ background-color:#669900;color:#FFF;}
+.calq .squ {  background-color:#669900; height: 10px;width: 10px; margin: 5px}
+
+/*tooltip calendare */
+#qtooltip {
+background: -moz-linear-gradient(top,  rgba(204,0,51,0.51) 0%, rgba(204,0,51,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,0,51,0.51)), color-stop(100%,rgba(204,0,51,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(204,0,51,0.51) 0%,rgba(204,0,51,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(204,0,51,0.51) 0%,rgba(204,0,51,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(204,0,51,0.51) 0%,rgba(204,0,51,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(204,0,51,0.51) 0%,rgba(204,0,51,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82cc0033', endColorstr='#cc0033',GradientType=0 ); /* IE6-9 */
+font-size:12px;position:absolute;display:none;border:2px solid #bbb;color:#fff;padding:2px;width:300px;-moz-box-shadow: 2px 2px 11px #666;-webkit-box-shadow: 2px 2px 11px #666;}
+
+#qtooltip .pop-title { text-align: center;background-color: #fff; color:#222; padding: 0; margin: 0;}
+#qtooltip .team-name {text-align:center;}
+#qtooltip .logo {text-align:center;}
+#qtooltip .logo img { border: 1px solid #FFF}
+#qtooltip .score {text-align: center; font-size:26px; font-weight: bold; padding: 0; margin: 0; padding-top:25px; }
+#qtooltip .score-m {text-align: center; font-weight: bold;}
+#qtooltip .pop-pading { margin-bottom: 10px}
+
+/* mod_scoreboard */
+.countdown{
+ border-bottom:1px solid #777;
+  background: #ed555f; /* Old browsers */
+    background: -moz-linear-gradient(top, #ed555f 0%, #760101 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ed555f), color-stop(100%,#760101)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ed555f 0%,#760101 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ed555f 0%,#760101 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ed555f 0%,#760101 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ed555f 0%,#760101 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed555f', endColorstr='#760101',GradientType=0 ); /* IE6-9 */
+ margin:0;
+ padding:5px 0 0 0;
+}
+.countdown .mstart{font-size:15px;color:#fff; padding: 5px; display: block}
+.cd_row{text-align:center;width:100%;padding-top:2px}
+.cd_section{float:left;font-size:10px;text-align:center;width:24%;color:#fff;padding:5px 0}
+.cd_amount{font-size:25px;color:#ff0;margin:0;padding:0}

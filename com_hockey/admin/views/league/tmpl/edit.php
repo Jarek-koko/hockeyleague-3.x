@@ -30,6 +30,9 @@ $document->addScript(JURI::root(true) . "/administrator/components/com_hockey/as
     
 Joomla.submitbutton = function(task)
 {
+    document.getElementById('jform_team_1').disabled= "";
+    document.getElementById('jform_team_2').disabled= "";
+    
     if (task == 'league.cancel') {
         Joomla.submitform(task, document.getElementById('league-form'));
     }

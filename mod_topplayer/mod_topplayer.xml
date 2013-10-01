@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.7.0" client="site" method="upgrade">
+    <name>Top Players</name>
+    <author>Klich Jarosław</author>
+    <creationDate>August 2013</creationDate>
+    <copyright>Klich Jarosław</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>Jarek.koko+HockeyTeam@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_TOPPLAYER_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_topplayer">mod_topplayer.php</filename>
+        <folder>tmpl</folder>
+        <filename>index.html</filename>
+        <filename>mod_topplayer.xml</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">en-GB.mod_topplayer.ini</language>
+        <language tag="en-GB">en-GB.mod_topplayer.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field 
+                    name="idteam" 
+                    type="sql" 
+                    default="0" 
+                    label="MOD_TOPPLAYER_FIELD_IDTEAM_LABEL" 
+                    description="MOD_TOPPLAYER_FIELD_IDTEAM_DESC" 
+                    query="SELECT 0 AS id, '- All Teams -' AS name UNION SELECT id AS value, name  FROM #__hockey_teams WHERE state=1 ORDER BY name"
+                    key_field="id" 
+                    value_field="name"
+                />
+                <field 
+                    name="sez" 
+                    type="sql" 
+                    default="0" 
+                    label="MOD_TOPPLAYER_FIELD_SEZ_LABEL"  
+                    query="SELECT id AS value, name AS sez FROM #__hockey_system ORDER BY id DESC" 
+                />
+                <field 
+                    name="type_of_match" 
+                    type="list" 
+                    default="0" 
+                    label="MOD_TOPPLAYER_FIELD_TYPE_LABEL" 
+                    description="MOD_TOPPLAYER_FIELD_TYPE_DESC">
+                    <option value="0">MOD_TOPPLAYER_FIELD_REG_OPTION</option>
+                    <option value="1">MOD_TOPPLAYER_FIELD_POFF_OPTION</option>
+                </field>
+                <field 
+                    name="title1" 
+                    type="text" 
+                    default="P" 
+                    label="MOD_TOPPLAYER_FIELD_TAB1_LABEL" 
+                    description="MOD_TOPPLAYER_FIELD_TAB1_DESC" 
+                />
+                <field 
+                    name="title2" 
+                    type="text" 
+                    default="G" 
+                    label="MOD_TOPPLAYER_FIELD_TAB2_LABEL" 
+                    description="MOD_TOPPLAYER_FIELD_TAB2_DESC" 
+                />
+                <field 
+                    name="title3" 
+                    type="text" 
+                    default="A" 
+                    label="MOD_TOPPLAYER_FIELD_TAB3_LABEL" 
+                    description="MOD_TOPPLAYER_FIELD_TAB3_DESC" 
+                />
+            </fieldset>
+            <fieldset name="advanced">
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

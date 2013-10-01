@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.7.0" client="site" method="upgrade">
+    <name>Calendar Matches</name>
+    <author>Klich Jarosław</author>
+    <creationDate>August 2013</creationDate>
+    <copyright>Klich Jarosław</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>Jarek.koko+HockeyTeam@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <version>1.0.1</version>
+    <description>MOD_CAL_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_calendar">mod_calendar.php</filename>
+        <folder>tmpl</folder>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>mod_calendar.xml</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">en-GB.mod_calendar.ini</language>
+        <language tag="en-GB">en-GB.mod_calendar.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field 
+                    name="idteam" 
+                    label="MOD_CAL_FIELD_IDTEAM_LABEL" 
+                    description="MOD_CAL_FIELD_IDTEAM_LABEL" 
+                    default="0" 
+                    type="sql" 
+                    query="SELECT 0 AS id, '- All Teams -' AS name UNION SELECT id AS value, name  FROM #__hockey_teams WHERE state=1 ORDER BY name"
+                    key_field="id" 
+                    value_field="name"
+                />
+                <field 
+                    name="sez" 
+                    type="sql" 
+                    default="" 
+                    label="MOD_CAL_FIELD_SEZ_LABEL"  
+                    query="SELECT id AS value, name AS sez FROM #__hockey_system ORDER BY id DESC" 
+                />
+                <field 
+                    name="add_month" 
+                    type="text" 
+                    default="0" 
+                    label="MOD_CAL_FIELD_ADDMONTH_LABEL" 
+                    description="MOD_CAL_FIELD_ADDMONTH_DESC" 
+                />
+                <field 
+                    name="show_tooltips" 
+                    type="radio" 
+                    default="1" 
+                    label="MOD_CAL_FIELD_TOOLTIP_LABEL" 
+                    description="MOD_CAL_FIELD_TOOLTIP_DESC">
+                    <option value="0">MOD_CAL_NO</option>
+                    <option value="1">MOD_CAL_YES</option>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    description="JFIELD_ALT_MODULE_LAYOUT_DESC" 
+                />
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" 
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
