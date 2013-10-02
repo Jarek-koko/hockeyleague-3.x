@@ -14,6 +14,7 @@ $title1 = ( $params->get('title1', 'P') );
 $title2 = ( $params->get('title2', 'G') );
 $title3 = ( $params->get('title3', 'A') );
 $type = intval($params->get('type_of_match', 0));
+
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
 JHtml::_('jquery.framework');

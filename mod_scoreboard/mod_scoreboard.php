@@ -17,15 +17,15 @@ if (!count($list)) {
     return;
 }
 
-$info =     $params->get('info', '');
-$title =    $params->get('title', 'Raport');
-$width =    (int) $params->get('width', 800);
-$height =   (int) $params->get('height', 600);
-$popup =    (int) $params->get('popup', 1);
+$info = $params->get('info', '');
+$title = $params->get('title', 'Raport');
+$width = (int) $params->get('width', 800);
+$height = (int) $params->get('height', 600);
+$popup = (int) $params->get('popup', 1);
 
 $show_countdown = (int) $params->get('show_countdown', 1);
-$show_button =    (int) $params->get('show_button', 1);
-$get_gt =         (int) $params->get('get_gt', 0);
+$show_button = (int) $params->get('show_button', 1);
+$get_gt = (int) $params->get('get_gt', 0);
 
 if ($get_gt == 0) {
     $day = (int) $params->get('day', 01);
@@ -45,17 +45,21 @@ if ($get_gt == 0) {
     $second = (int) '00';
 }
 
-$mstart =   $params->get('m_start', 'Match is underway');
-$tday =     $params->get('t_day', 'Days');
-$thour =    $params->get('t_hour', 'Hours');
-$tminute =  $params->get('t_minute', 'Minutes');
-$tsecond =  $params->get('t_second', 'Seconds');
+$mstart = $params->get('m_start', 'Match is underway');
+$tday = $params->get('t_day', 'Days');
+$thour = $params->get('t_hour', 'Hours');
+$tminute = $params->get('t_minute', 'Minutes');
+$tsecond = $params->get('t_second', 'Seconds');
 
 
 JHtml::_('jquery.framework');
 $document = JFactory::getDocument();
 $document->addStyleSheet(JURI::base(true) . '/media/com_hockey/css/style.css');
 
-$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
+if ($list['w1so'] != null || $list['w2so'] != null || $list['w1ot'] != null || $list['w2ot'] != null) {
+    $style = '.board .sc_m_penalty { visibility: visible;}';
+    $document->addStyleDeclaration($style);
+}
 
+$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 require JModuleHelper::getLayoutPath('mod_scoreboard', $params->get('layout', 'default'));

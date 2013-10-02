@@ -34,7 +34,7 @@ class modCalendarHelper
         $days = array();
 
         foreach ($events as $event) {
-            $days [$event->days] = array($event->dates);
+            $days[$event->days] = array($event->dates);
         }
         return $days;
     }

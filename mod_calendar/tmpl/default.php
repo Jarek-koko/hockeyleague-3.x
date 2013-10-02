@@ -14,25 +14,25 @@ if ($show_tooltips == 1) :
 //<![CDATA[
 js = jQuery.noConflict();
 js(document).ready(function() {
-    js("td.qhome").hover(function(e) {
-        var str = ValidateDate(js('span', this).first().text());
-        if (str) {
-            js("body").append('<div id="qtooltip"><div><img src="<?php echo JURI::base(true); ?>/media/com_hockey/images/loading.gif" /></div></div>');
-            var Url = '<?php echo JURI::base(); ?>' + 'index.php?option=com_hockey&view=modcal&mdate=' + js('span', this).first().text() + '&id=<?php echo $idteam; ?>&<?php echo JSession::getFormToken(); ?>=1&sez=<?php echo $sez; ?>&format=raw';
-            js.ajax({
-                url: Url,
-                dataType: 'html',
-                cache: false,
-                success: function(data) {
-                    js("#qtooltip").html(data);
-                },
-                error: function() {
-                    js("#qtooltip").html('<p>Data not found</p>');
-                }
-            });
-            js("#qtooltip").css("top", (js(this).offset().top - 140) + "px").css("left", (js(this).offset().left - 350) + "px").fadeIn("fast");
-        }
-    },function() { js("#qtooltip").remove(); });
+js("td.qhome").hover(function(e) {
+    var str = ValidateDate(js('span', this).first().text());
+    if (str) {
+        js("body").append('<div id="qtooltip"><div><img src="<?php echo JURI::base(true); ?>/media/com_hockey/images/loading.gif" /></div></div>');
+        var Url = '<?php echo JURI::base(); ?>' + 'index.php?option=com_hockey&view=modcal&mdate=' + js('span', this).first().text() + '&id=<?php echo $idteam; ?>&<?php echo JSession::getFormToken(); ?>=1&sez=<?php echo $sez; ?>&format=raw';
+        js.ajax({
+            url: Url,
+            dataType: 'html',
+            cache: false,
+            success: function(data) {
+                js("#qtooltip").html(data);
+            },
+            error: function() {
+                js("#qtooltip").html('<p>Data not found</p>');
+            }
+        });
+        js("#qtooltip").css("top", (js(this).offset().top - 140) + "px").css("left", (js(this).offset().left - 350) + "px").fadeIn("fast");
+    }
+},function() { js("#qtooltip").remove(); });
 });
 
 function ValidateDate(dtValue) {
@@ -55,7 +55,7 @@ function submitForm(month, year) {
 <form action="<?php echo $uri->toString(); ?>" method="post" name="formCal">
 <div id="qnav">
     <span class="prev"><?php echo $back; ?></span>
-    <span class="actual" ><b><?php echo JText::_($title) ?></b></span>
+    <span class="actual"><b><?php echo JText::_($title) ?></b></span>
     <span class="next"><?php echo $next; ?></span>
 </div>
 <table>

@@ -10,10 +10,8 @@ defined('_JEXEC') or die;
 ?>
 <div class="row-fluid">
 <div class="component-title">
-    <a href = "javascript:history.back()" class="pull-left btn btn-mini btn-info">
-        <span class="icon-undo  icon-white"></span><?php echo JText::_('COM_HOCKEY_BACK'); ?>
-    </a>
-     <?php echo JHTML::_('date', $this->list['data'], JText::_('DATE_FORMAT_LC3')); ?>
+    <?php echo $this->button_back; ?>
+    <?php echo JHTML::_('date', $this->list['data'], JText::_('DATE_FORMAT_LC3')); ?>
 </div>
 </div>
 <div id="scoreboard1">

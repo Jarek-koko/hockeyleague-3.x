@@ -23,12 +23,19 @@ class HockeyViewReport extends JViewLegacy
     {
         $app = JFactory::getApplication();
         $id = (int) $app->input->get('id', 0, 'int');
+        $tmpl = $app->input->get('tmpl', NULL ,'string');
 
         if ($id == 0) {
             echo JText::_("COM_HOCKEY_INVALID_PARAM");
             return false;
         }
 
+        $this->button_back = '<a href="javascript:history.back()" class="pull-left btn btn-mini btn-info"><span class="icon-undo  icon-white"></span>'.JText::_('COM_HOCKEY_BACK').'</a>';
+   
+        if ($tmpl == 'component') {
+            $this->button_back = '';
+        }
+        
         $model = $this->getModel();
         $list = $model->getList();
 
@@ -43,7 +50,7 @@ class HockeyViewReport extends JViewLegacy
 
             if ($this->list['w1so'] != null || $this->list['w2so'] != null || $this->list['w1ot'] != null || $this->list['w2ot'] != null) {
                 $doc = JFactory::getDocument();
-                $style = '#board #sc_m_penalty { visibility: visible;}';
+                $style = '.board .sc_m_penalty { visibility: visible;}';
                 $doc->addStyleDeclaration($style);
             }
 
