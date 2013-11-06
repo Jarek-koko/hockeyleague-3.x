@@ -1,4 +1,4 @@
-## Joomla extensions - Hockey League
+## Joomla extension - Hockey League
 
 #### Note: Joomla version - 3.x
 
