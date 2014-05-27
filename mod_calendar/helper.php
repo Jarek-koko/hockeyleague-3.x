@@ -13,6 +13,7 @@ class modCalendarHelper
     {
         $sez = intval($params->get('sez', 0));
         $db = JFactory::getDBO();
+
         $query = "SELECT  m.data AS dates, DAYOFMONTH(m.data) AS days "
             . "FROM #__hockey_match m "
             . "WHERE (m.id_system=" . $db->Quote($sez) . ") "
@@ -25,12 +26,13 @@ class modCalendarHelper
         $db->setQuery($query);
 
         try {
-            $db->execute();
+            $events = $db->loadObjectList();
+
         } catch (RuntimeException $e) {
+
             throw new Exception($e->getMessage(), 500);
         }
 
-        $events = $db->loadObjectList();
         $days = array();
 
         foreach ($events as $event) {
