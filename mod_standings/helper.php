@@ -24,19 +24,21 @@ class ModStandingsHelper
         }
 
         $query->select("$sname ,t.points ,t.group ")
-                ->from('#__hockey_tables t')
-                ->join('INNER', '#__hockey_teams tm ON (tm.id = t.team_id)')
-                ->where("t.id_system = " . $db->Quote($sez) . " AND t.state = 1")
-                ->order('t.group ASC, t.points DESC, t.ordering ASC');
+            ->from('#__hockey_tables t')
+            ->join('INNER', '#__hockey_teams tm ON (tm.id = t.team_id)')
+            ->where("t.id_system = " . $db->Quote($sez) . " AND t.state = 1")
+            ->order('t.group ASC, t.points DESC, t.ordering ASC');
 
         $db->setQuery($query);
 
         try {
-            $db->execute();
+            $row = $db->loadObjectList();
+
         } catch (RuntimeException $e) {
+
             throw new Exception($e->getMessage(), 500);
         }
 
-        return $db->loadObjectList();
+        return $row;
     }
 }
