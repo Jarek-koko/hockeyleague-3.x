@@ -55,6 +55,7 @@ $tsecond = $params->get('t_second', 'Seconds');
 JHtml::_('jquery.framework');
 $document = JFactory::getDocument();
 $document->addStyleSheet(JURI::base(true) . '/media/com_hockey/css/style.css');
+$document->addScript(JURI::base(true) . '/media/com_hockey/js/jquery.colorbox-min.js');
 
 if ($list['w1so'] != null || $list['w2so'] != null || $list['w1ot'] != null || $list['w2ot'] != null) {
     $style = '.board .sc_m_penalty { visibility: visible;}';
