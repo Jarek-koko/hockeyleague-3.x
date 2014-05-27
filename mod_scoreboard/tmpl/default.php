@@ -152,12 +152,17 @@ function update<?php echo $module->id; ?>()
     <?php  if ($link): ?> 
     <div class="sc_more_info">
            <?php if ($popup == 1) : ?>
-              <?php JHTML::_('behavior.modal'); ?>
-                 <a class="modal" href="<?php echo $link ?>" rel="{handler:'iframe', size: {x:'<?php echo $width; ?>', y:'<?php echo $height; ?>'}}">
-                     <span class="link_rel"><?php echo $title; ?></span>
-                 </a>
-             <?php else: ?>
-                 <a class="modal" href="<?php echo $link ?>"><span class="link_rel"><?php echo $title; ?></span></a>
+               <script type="text/javascript">
+               //<![CDATA[
+               jQuery.noConflict();
+               jQuery(document).ready(function() {
+                   jQuery(".modal-ajax").colorbox({iframe:true, innerWidth:<?php echo $width; ?>, innerHeight:<?php echo $height; ?>});
+               });
+               //]]>
+               </script>
+               <a class="modal-ajax" href="<?php echo $link ?>"><span class="link_rel"><?php echo $title; ?></span></a>
+           <?php else : ?>
+               <a href="<?php echo $link ?>"><span class="link_rel"><?php echo $title; ?></span></a>
            <?php endif; ?>
     </div>
     <?php endif; ?>
