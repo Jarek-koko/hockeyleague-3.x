@@ -26,12 +26,13 @@ class modScoreboardHelper
         $db->setQuery($query);
 
         try {
-            $db->execute();
+            $row = $db->loadAssoc();
+
         } catch (RuntimeException $e) {
             throw new Exception($e->getMessage(), 500);
         }
 
-        return $db->loadAssoc();
+        return $row;
     }
 
 }
