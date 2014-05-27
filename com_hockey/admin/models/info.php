@@ -28,7 +28,7 @@ class HockeyModelInfo extends JModelList
 
         $db->setQuery($query);
         $db->execute();
-        $num_rows = $db->getNumRows();
+        $num_rows = (int) $db->getNumRows();
         
 
         if ($num_rows > 0) {
