@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hockeyleague" default="all" basedir=".">
+
+    <property environment="env"/>
+    <property name="source"     value="D:\wamp\www\joomla30" />
+    <property name="release" 	value="F:\webmaster\05_joomla_dev\myextension\hockeyleague-3.x\Releases" />
+    <property name="builddir" 	value="C:\Windows\Temp" />
+    <property name="verbose" 	value="true" />
+
+    <tstamp>
+        <format property="NOW" pattern="dd-MM-yyyy_%H%M" />
+    </tstamp>
+
+    <property name="version" value="${NOW}" />
+
+    <target name="all" depends="build, sync, package"/>
+
+    <target name="all-no-pack" depends="build, sync"/>
+
+    <target name="package">
+        <phingcall target="_package">
+            <param name="NAME" value="com_hockey"/>
+        </phingcall>
+        <phingcall target="_package">
+            <param name="NAME" value="mod_topplayer"/>
+        </phingcall>
+        <phingcall target="_package">
+            <param name="NAME" value="mod_calendar"/>
+        </phingcall>
+        <phingcall target="_package">
+            <param name="NAME" value="mod_matchdays"/>
+        </phingcall>
+        <phingcall target="_package">
+            <param name="NAME" value="mod_standings"/>
+        </phingcall>
+        <phingcall target="_package">
+            <param name="NAME" value="mod_scoreboard"/>
+        </phingcall>
+    </target>
+
+    <target name="build">
+        <phingcall target="buildcomponent">
+            <param name="NAME" value="com_hockey"/>
+            <param name="PREFIX" value=""/>
+        </phingcall>
+        <phingcall target="buildmodule">
+            <param name="NAME" value="mod_topplayer"/>
+            <param name="PREFIX" value=""/>
+        </phingcall>
+        <phingcall target="buildmodule">
+            <param name="NAME" value="mod_calendar"/>
+            <param name="PREFIX" value=""/>
+        </phingcall>
+        <phingcall target="buildmodule">
+            <param name="NAME" value="mod_matchdays"/>
+            <param name="PREFIX" value=""/>
+        </phingcall>
+        <phingcall target="buildmodule">
+            <param name="NAME" value="mod_standings"/>
+            <param name="PREFIX" value=""/>
+        </phingcall>
+        <phingcall target="buildmodule">
+            <param name="NAME" value="mod_scoreboard"/>
+            <param name="PREFIX" value=""/>
+        </phingcall>
+    </target>
+
+    <target name="sync">
+        <phingcall target="_sync">
+            <param name="NAME" value="com_hockey"/>
+        </phingcall>
+        <phingcall target="_sync">
+            <param name="NAME" value="mod_topplayer"/>
+        </phingcall>
+        <phingcall target="_sync">
+            <param name="NAME" value="mod_calendar"/>
+        </phingcall>
+        <phingcall target="_sync">
+            <param name="NAME" value="mod_matchdays"/>
+        </phingcall>
+        <phingcall target="_sync">
+            <param name="NAME" value="mod_standings"/>
+        </phingcall>
+        <phingcall target="_sync">
+            <param name="NAME" value="mod_scoreboard"/>
+        </phingcall>
+    </target>
+
+    <target name="_clean">
+        <delete dir="${builddir}/${NAME}" verbose="${verbose}"/>
+    </target>
+
+    <target name="_sync">
+        <copy todir="${NAME}" includeemptydirs="true" haltonerror="false">
+            <fileset dir="${builddir}/${NAME}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <target name="_package">
+        <zip destfile="${release}/${NAME}_${version}.zip" basedir="${NAME}">
+            <fileset dir="${NAME}">
+                <exclude name=".git"/>
+                <exclude name="README.md" />
+            </fileset>
+        </zip>
+    </target>
+
+
+    <target name="buildmodule" depends="_clean">
+
+        <copy todir="${builddir}/${NAME}" overwrite="true" verbose="${verbose}" haltonerror="false">
+            <fileset dir="${source}/${PREFIX}/modules/${NAME}"/>
+        </copy>
+
+        <copy todir="${builddir}/${NAME}" overwrite="true" verbose="${verbose}"  haltonerror="false">
+            <mapper type="flatten" />
+            <fileset dir="${source}/${PREFIX}/language">
+                <include name="*/*${NAME}.ini" />
+                <include name="*/*${NAME}.sys.ini" />
+            </fileset>
+        </copy>
+
+    </target>
+
+    <target name="buildcomponent" depends="_clean">
+
+        <mkdir dir="${builddir}/${NAME}/site"/>
+        <mkdir dir="${builddir}/${NAME}/admin"/>
+        <mkdir dir="${builddir}/${NAME}/media"/>
+        <mkdir dir="${builddir}/${NAME}/admin/sql"/>
+        <mkdir dir="${builddir}/${NAME}/images"/>
+        <mkdir dir="${builddir}/${NAME}/images/teams"/>
+        <mkdir dir="${builddir}/${NAME}/images/players"/>
+
+
+        <copy todir="${builddir}/${NAME}/images/teams" overwrite="true" verbose="${verbose}" haltonerror="false">
+            <filelist dir="${source}/images/hockey/teams" files="nologo.png" />
+            <filelist dir="${source}/images/hockey/teams" files="index.html" />
+        </copy>
+
+        <copy todir="${builddir}/${NAME}/images/players" overwrite="true" verbose="${verbose}" haltonerror="false">
+            <filelist dir="${source}/images/hockey/players" files="nophoto.jpg"/>
+            <filelist dir="${source}/images/hockey/players" files="index.html"/>
+        </copy>
+
+        <copy todir="${builddir}/${NAME}/admin" overwrite="true" verbose="${verbose}">
+            <fileset dir="${source}/administrator/components/${NAME}"/>
+        </copy>
+
+        <copy todir="${builddir}/${NAME}/admin/language" overwrite="true" verbose="${verbose}">
+            <mapper type="flatten" />
+            <fileset dir="${source}/administrator/language">
+                <exclude name="overrides/*"/>
+                <exclude name="pdf_fonts/*"/>
+                <include name="**/*${NAME}*.ini"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${builddir}/${NAME}/media" overwrite="true" verbose="${verbose}"  haltonerror="false">
+            <fileset dir="${source}/media/${NAME}"/>
+        </copy>
+
+        <copy todir="${builddir}/${NAME}/site" overwrite="true" verbose="${verbose}">
+            <fileset dir="${source}/components/${NAME}"/>
+        </copy>
+
+        <copy todir="${builddir}/${NAME}/site/language" overwrite="true" verbose="${verbose}">
+            <mapper type="flatten" />
+            <fileset dir="${source}/language">
+                <exclude name="overrides/*"/>
+                <exclude name="pdf_fonts/*"/>
+                <include name="**/*${NAME}*.ini" />
+            </fileset>
+        </copy>
+
+        <move file="${builddir}/${NAME}/admin/hockey.xml" todir="${builddir}/${NAME}" verbose="${verbose}"/>
+        <move file="${builddir}/${NAME}/admin/script.php" todir="${builddir}/${NAME}" verbose="${verbose}" />
+    </target>
+
+</project>
