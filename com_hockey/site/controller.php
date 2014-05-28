@@ -9,8 +9,8 @@
 // No direct access
 defined('_JEXEC') or die;
 
-jimport ('joomla.html.html.bootstrap');
-jimport('joomla.application.component.controller');
+JHtml::_('jquery.framework');
+JHtml::_('bootstrap.framework');
 
 class HockeyController extends JControllerLegacy
 {
