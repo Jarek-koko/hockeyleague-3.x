@@ -26,7 +26,7 @@ class HockeyHelper
         $rows = $db->loadObjectList();
         // Compile the options.
         $options = array();
-    
+
         if (!empty($rows)) {
             foreach ($rows as $item) {
                 $options[] = JHtml::_('select.option', $item->value, $item->text);
