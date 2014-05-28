@@ -7,6 +7,7 @@
  * @author      Klich Jarosław
  */
 defined('_JEXEC') or die;
+
 echo $this->loadTemplate('scoreboard');
 ?>
 <div id="report-body" class="rp"> 
@@ -108,7 +109,7 @@ echo $this->loadTemplate('scoreboard');
             <?php endif ?>
         </div>
     </div>
-    <?php echo JHtml::_('bootstrap.endTab'); ?>   
+    <?php echo JHtml::_('bootstrap.endTab'); ?>
 
     <!-- Start TAB -->
     <?php echo JHtml::_('bootstrap.addTab', 'Tab_rep', 'refefees', JText::_('COM_HOCKEY_REFEREES')); ?>
@@ -126,7 +127,7 @@ echo $this->loadTemplate('scoreboard');
             </ul>
         </div>
     </div>
-    <?php echo JHtml::_('bootstrap.endTab'); ?>   
+    <?php echo JHtml::_('bootstrap.endTab'); ?>
     
     
     <!-- Start TAB -->
@@ -203,7 +204,7 @@ echo $this->loadTemplate('scoreboard');
             </table>
         </div>
     </div>
-    <?php echo JHtml::_('bootstrap.endTab'); ?> 
+    <?php echo JHtml::_('bootstrap.endTab'); ?>
     
     <!-- Start TAB -->
     <?php echo JHtml::_('bootstrap.addTab', 'Tab_rep', 'goalie_stats', JText::_('COM_HOCKEY_GOALIE_STATS')); ?>
@@ -285,7 +286,7 @@ echo $this->loadTemplate('scoreboard');
             </table>
         </div>
     </div>
-    <?php echo JHtml::_('bootstrap.endTab'); ?>    
+    <?php echo JHtml::_('bootstrap.endTab'); ?>
     <?php echo JHtml::_('bootstrap.endTabSet'); ?>
 </div>
 

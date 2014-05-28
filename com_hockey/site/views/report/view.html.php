@@ -34,6 +34,8 @@ class HockeyViewReport extends JViewLegacy
    
         if ($tmpl == 'component') {
             $this->button_back = '';
+            // Load bootstrap
+            JHtml::_('bootstrap.loadCss');
         }
         
         $model = $this->getModel();
