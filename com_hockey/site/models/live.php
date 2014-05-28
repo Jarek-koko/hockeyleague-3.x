@@ -44,13 +44,6 @@ class HockeyModelLive extends JModelLegacy
                 . "WHERE t1.id =" . $this->_db->Quote($this->_id);
 
             $this->_db->setQuery($query);
-
-            try {
-                $this->_db->execute();
-            } catch (RuntimeException $e) {
-                throw new Exception($e->getMessage(), 500);
-            }
-
             $this->_list = $this->_db->loadAssoc();
         }
         return $this->_list;
@@ -67,13 +60,6 @@ class HockeyModelLive extends JModelLegacy
                 . " ORDER BY t1.period, t1.time";
 
             $this->_db->setQuery($query);
-
-            try {
-                $this->_db->execute();
-            } catch (RuntimeException $e) {
-                throw new Exception($e->getMessage(), 500);
-            }
-
             $this->_penl = $this->_db->loadObjectList();
         }
         return $this->_penl;
@@ -95,12 +81,6 @@ class HockeyModelLive extends JModelLegacy
                 . " ORDER BY t1.period, t1.score1, t1.score2 ASC";
 
             $this->_db->setQuery($query);
-
-            try {
-                $this->_db->execute();
-            } catch (RuntimeException $e) {
-                throw new Exception($e->getMessage(), 500);
-            }
             $this->_goals = $this->_db->loadObjectList();
         }
         return $this->_goals;
@@ -133,12 +113,6 @@ class HockeyModelLive extends JModelLegacy
                 . "ORDER BY M.id_team, P.position, P.name ";
 
             $this->_db->setQuery($query);
-
-            try {
-                $this->_db->execute();
-            } catch (RuntimeException $e) {
-                throw new Exception($e->getMessage(), 500);
-            }
             $this->_play = $this->_db->loadObjectList();
         }
         return $this->_play;
