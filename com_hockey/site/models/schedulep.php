@@ -51,12 +51,6 @@ class HockeyModelSchedulep extends JModelLegacy
 
                 $db->setQuery($query);
 
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
-
                 $this->_item = $db->loadObjectList();
                 $cache->store($this->_item, $id);
             }

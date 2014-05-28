@@ -68,11 +68,6 @@ class HockeyModelStatsallteams extends JModelLegacy
 
             $db->setQuery($query, 0, $this->_limit);
 
-            try {
-                $db->execute();
-            } catch (RuntimeException $e) {
-                throw new Exception($e->getMessage(), 500);
-            }
             $this->_stats = $db->loadObjectList();
             $cache->store($this->_stats, $id);
         }
@@ -129,11 +124,6 @@ class HockeyModelStatsallteams extends JModelLegacy
 
             $db->setQuery($query, 0, $this->_limit);
 
-            try {
-                $db->execute();
-            } catch (RuntimeException $e) {
-                throw new Exception($e->getMessage(), 500);
-            }
             $this->_lists = $db->loadObjectList();
             $cache->store($this->_lists, $id);
         }

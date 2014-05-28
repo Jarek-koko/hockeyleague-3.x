@@ -67,12 +67,6 @@ class HockeyModelStatsteam extends JModelLegacy
                 . "ORDER BY punkty DESC , bramki DESC, mecze DESC";
 
             $db->setQuery($query);
-
-            try {
-                $db->execute();
-            } catch (RuntimeException $e) {
-                throw new Exception($e->getMessage(), 500);
-            }
             $this->_stats = $db->loadObjectList();
             $cache->store($this->_stats, $id);
         } 
@@ -127,14 +121,9 @@ class HockeyModelStatsteam extends JModelLegacy
             . "WHERE (P.position=1 ) HAVING mecze <>'0' ";
             
             $db->setQuery($query);
+            $this->_lists = $db->loadObjectList();
+            $cache->store($this->_lists, $id);
 
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
-                $this->_lists = $db->loadObjectList();
-                $cache->store($this->_lists, $id);
             }
         return $this->_lists;
     }

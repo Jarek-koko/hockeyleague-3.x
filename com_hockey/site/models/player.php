@@ -44,12 +44,6 @@ class HockeyModelPlayer extends JModelLegacy
 
                 $db->setQuery($query);
 
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
-
                 $this->_player = $db->loadObject();
                 $cache->store($this->_player, $id);
             }
@@ -81,11 +75,6 @@ class HockeyModelPlayer extends JModelLegacy
 
                 $db->setQuery($query);
 
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
                 $this->_pl_list = $db->loadObjectList();
                 $cache->store($this->_pl_list, $id);
             }
@@ -177,12 +166,6 @@ class HockeyModelPlayer extends JModelLegacy
                 }
                 
                 $db->setQuery($query);
-
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
                 $this->_stats = $db->loadObjectList();
                 $cache->store($this->_stats, $id);
             }

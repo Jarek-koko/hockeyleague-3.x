@@ -36,12 +36,6 @@ class HockeyModelTeam extends JModelLegacy
 
                 $db->setQuery($query);
 
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
-
                 $this->_item = $db->loadObject();
                 $cache->store($this->_item, $id);
             }

@@ -58,11 +58,13 @@ class HockeyModelModcal extends JModelLegacy
         $db->setQuery($query);
 
         try {
-            $db->execute();
+           $row = $db->loadObjectList();
+
         } catch (RuntimeException $e) {
+
             throw new Exception($e->getMessage(), 500);
         }
-        return $db->loadObjectList();
+        return $row;
     }
 
 }

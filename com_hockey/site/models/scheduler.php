@@ -51,12 +51,6 @@ class HockeyModelScheduler extends JModelLegacy
 
                 $db->setQuery($query);
 
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
-
                 $this->_item = $db->loadObjectList();
                 $cache->store($this->_item, $id);
             }
@@ -91,12 +85,6 @@ class HockeyModelScheduler extends JModelLegacy
                     ->group('id_kolejka');
                 $db->setQuery($query);
 
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
-               
                 $this->_matchday = $db->loadColumn();
                 $cache->store($this->_matchday, $id);
             }

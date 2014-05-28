@@ -30,7 +30,6 @@ class HockeyModelPlayers_flash extends JModelLegacy
      */
     public function getItems()
     {
-
         if (!isset($this->_item)) {
             $cache = JFactory::getCache('com_hockey', '');
 
@@ -47,12 +46,6 @@ class HockeyModelPlayers_flash extends JModelLegacy
                     ->order('name, first_name');
 
                 $db->setQuery($query);
-
-                try {
-                    $db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
 
                 $this->_item = $db->loadObjectList();
                 $cache->store($this->_item, $id);

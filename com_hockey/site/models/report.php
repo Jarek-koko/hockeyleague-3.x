@@ -47,13 +47,6 @@ class HockeyModelReport extends JModelLegacy
                     . "WHERE t1.id =" . $this->_db->Quote($this->_id);
 
                 $this->_db->setQuery($query);
-
-                try {
-                    $this->_db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
-
                 $this->_list = $this->_db->loadAssoc();
                 $cache->store($this->_list, $id);
             }
@@ -77,12 +70,6 @@ class HockeyModelReport extends JModelLegacy
                     . " ORDER BY t1.period, t1.time";
 
                 $this->_db->setQuery($query);
-
-                try {
-                    $this->_db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
 
                 $this->_penl = $this->_db->loadObjectList();
                 $cache->store($this->_penl, $id);
@@ -112,12 +99,6 @@ class HockeyModelReport extends JModelLegacy
                     . " ORDER BY t1.period, t1.score1, t1.score2 ASC";
 
                 $this->_db->setQuery($query);
-
-                try {
-                    $this->_db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
                 $this->_goals = $this->_db->loadObjectList();
                 $cache->store($this->_goals, $id);
             }
@@ -156,12 +137,6 @@ class HockeyModelReport extends JModelLegacy
                     . "ORDER BY M.id_team, P.position, P.name ";
 
                 $this->_db->setQuery($query);
-
-                try {
-                    $this->_db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
                 $this->_play = $this->_db->loadObjectList();
                 $cache->store($this->_play, $id);
             }
@@ -201,11 +176,6 @@ class HockeyModelReport extends JModelLegacy
                     . "ORDER BY M.id_team, P.position, P.name";
 
                 $this->_db->setQuery($query);
-                try {
-                    $this->_db->execute();
-                } catch (RuntimeException $e) {
-                    throw new Exception($e->getMessage(), 500);
-                }
                 $this->_golie = $this->_db->loadObjectList();
                 $cache->store($this->_golie, $id);
             }
